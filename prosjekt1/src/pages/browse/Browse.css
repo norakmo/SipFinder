@@ -1,0 +1,27 @@
+#root {
+  /* max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem; */
+  text-align: center;
+
+  background-color: #ffaec0;
+}
+
+body {
+  background-color: #ffff; /* Replace with your desired background color */
+}
+
+.filter {
+  background-color: #ffaec0;
+  -webkit-text-fill-color: white;
+  text-align: left;
+}
+
+.input {
+  background-color: white;
+}
+
+.button1 {
+  background-color: white;
+  -webkit-text-fill-color: black;
+}
