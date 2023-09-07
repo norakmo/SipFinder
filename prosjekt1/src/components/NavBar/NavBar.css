@@ -1,0 +1,43 @@
+.NavBar {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.NavBarLinks {
+    background-color: #FFAEC0;
+}
+
+.HomeLinkLogo {
+    color: black;
+    font-size: 10px;
+}
+
+.HomeLink {
+    padding-right: 1%;
+    padding-left: 1%;
+    color: black;
+    
+}
+
+.SearchLink {
+    padding-right: 1%;
+    padding-left: 1%;
+    color: black;
+}
+
+.HomeLink:hover {
+    color: black;
+    background-color: #FF66B3;
+}
+
+.SearchLink:hover {
+    color: black;
+    background-color: #FF66B3;
+}
+
+.HomeLinkLogo:hover {
+    color: black;
+}
+
