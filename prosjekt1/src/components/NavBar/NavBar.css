@@ -21,7 +21,7 @@
     
 }
 
-.SearchLink {
+.BrowseLink {
     padding-right: 1%;
     padding-left: 1%;
     color: black;
@@ -32,7 +32,7 @@
     background-color: #FF66B3;
 }
 
-.SearchLink:hover {
+.BrowseLink:hover {
     color: black;
     background-color: #FF66B3;
 }
