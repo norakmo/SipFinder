@@ -2,6 +2,19 @@ import { useState } from "react";
 import "./Browse.css";
 
 function Browse() {
+
+  function getState(){
+    if (localStorage.getItem("button") == "favorite") {
+      localStorage.setItem("button", "not-favorite")
+      console.log(localStorage.getItem("button"))
+    }
+
+    else if (localStorage.getItem("button") == "not-favorite" || localStorage.getItem("button") == null){
+      localStorage.setItem("button", "favorite")
+      console.log(localStorage.getItem("button"))
+    }
+    
+  }
   const [count, setCount] = useState(0);
 
   return (
@@ -43,7 +56,7 @@ function Browse() {
             Apply filter
           </button>
       </div>
-      
+
       <div className="contents">
         <div className="drinkElement">
           <div className="picture">
@@ -68,7 +81,7 @@ function Browse() {
             <p></p>
           </div>
           <div className="favorite">
-            <button type="submit" className="filterButton">
+            <button type="submit" className="filterButton" style={{ backgroundColor: 'blue' }} onClick={getState}>
               favorite
             </button>
           </div>
@@ -104,5 +117,6 @@ function Browse() {
     </div>
   );
 }
+
 
 export default Browse;
