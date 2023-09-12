@@ -17,8 +17,8 @@ export default function NavBar(){
                 <Link to="/" className="HomeLink">
                     Home
                 </Link>
-                <Link to="/search" className="SearchLink">
-                    Search
+                <Link to="/browse" className="BrowseLink">
+                    Browse
                 </Link>
             </div>
         </nav>
