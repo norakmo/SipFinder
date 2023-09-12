@@ -56,6 +56,7 @@ function Browse() {
             Apply filter
           </button>
         </div>
+        </div>
         <div className="drinklist">
           <div className="DrinkElement">
             <p>
@@ -90,7 +91,7 @@ function Browse() {
             </p>
           </div>
           
-        </div>
+      
       </div>
     </>
   );

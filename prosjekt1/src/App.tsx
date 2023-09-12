@@ -12,9 +12,8 @@ function App() {
     <>
       <Router>
         <div>
-          <div className="NavigationBar">
-            <NavBar />
-          </div>
+          <NavBar />
+          
           <div className="space"></div>
           <Routes>
             <Route path={"/"} element={<Home />} />

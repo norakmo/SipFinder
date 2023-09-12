@@ -1,8 +1,11 @@
 .NavBar {
+    padding-top: 1%;
     top: 0;
-    position: fixed;
+    position: sticky;
     width: 100%;
     text-align: center;
+    z-index:50;
+    background-color: aquamarine;
 }
 
 .NavBarLinks {
