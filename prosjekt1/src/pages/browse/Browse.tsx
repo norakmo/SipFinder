@@ -5,11 +5,10 @@ function Browse() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
     <div className="container">
+
       <div className="filter">
           <label> Filters:</label>
-
           <div>
             <label>
               <input type="checkbox" />
@@ -20,18 +19,6 @@ function Browse() {
             <label>
               <input type="checkbox" />
               Non-alcoholic
-            </label>
-          </div>
-          <div>
-            <label>
-              <input type="checkbox" />
-              Ordinary
-            </label>
-          </div>
-          <div>
-            <label>
-              <input type="checkbox" />
-              Cocktail
             </label>
           </div>
           <div>
@@ -55,45 +42,66 @@ function Browse() {
           <button type="submit" className="filterButton">
             Apply filter
           </button>
-        </div>
-        </div>
-        <div className="drinklist">
-          <div className="DrinkElement">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at luctus tortor. 
-              Etiam quis tristique neque. Donec dolor erat, ornare vel dapibus sit amet, finibus nec mauris. Etiam volutpat 
-              dui sed luctus tempor. Ut dapibus turpis neque, eu porta nunc volutpat id. Nunc malesuada metus vel euismod porta. 
-              Fusce lacinia metus est. Morbi suscipit ut metus non rutrum. Vestibulum lectus neque, dapibus eu lorem ac, varius dapibus lorem. 
-            </p>
-          </div>
-          <div className="DrinkElement">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at luctus tortor. 
-              Etiam quis tristique neque. Donec dolor erat, ornare vel dapibus sit amet, finibus nec mauris. Etiam volutpat 
-              dui sed luctus tempor. Ut dapibus turpis neque, eu porta nunc volutpat id. Nunc malesuada metus vel euismod porta. 
-              Fusce lacinia metus est. Morbi suscipit ut metus non rutrum. Vestibulum lectus neque, dapibus eu lorem ac, varius dapibus lorem. 
-            </p>
-          </div>
-          <div className="DrinkElement">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at luctus tortor. 
-              Etiam quis tristique neque. Donec dolor erat, ornare vel dapibus sit amet, finibus nec mauris. Etiam volutpat 
-              dui sed luctus tempor. Ut dapibus turpis neque, eu porta nunc volutpat id. Nunc malesuada metus vel euismod porta. 
-              Fusce lacinia metus est. Morbi suscipit ut metus non rutrum. Vestibulum lectus neque, dapibus eu lorem ac, varius dapibus lorem. 
-            </p>
-          </div>
-          <div className="DrinkElement">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at luctus tortor. 
-              Etiam quis tristique neque. Donec dolor erat, ornare vel dapibus sit amet, finibus nec mauris. Etiam volutpat 
-              dui sed luctus tempor. Ut dapibus turpis neque, eu porta nunc volutpat id. Nunc malesuada metus vel euismod porta. 
-              Fusce lacinia metus est. Morbi suscipit ut metus non rutrum. Vestibulum lectus neque, dapibus eu lorem ac, varius dapibus lorem. 
-            </p>
-          </div>
-          
-      
       </div>
-    </>
+      
+      <div className="contents">
+        <div className="drinkElement">
+          <div className="picture">
+            Picture
+          </div>
+          <div className="title">
+            <h3>Clink clink</h3>
+            <p></p>
+          </div>
+          <div className="favorite">
+            <button type="submit" className="filterButton">
+              favorite
+            </button>
+          </div>
+        </div>
+        <div className="drinkElement">
+          <div className="picture">
+            Picture
+          </div>
+          <div className="title">
+            <h3>Clink clink</h3>
+            <p></p>
+          </div>
+          <div className="favorite">
+            <button type="submit" className="filterButton">
+              favorite
+            </button>
+          </div>
+        </div>
+        <div className="drinkElement">
+          <div className="picture">
+            Picture
+          </div>
+          <div className="title">
+            <h3>Clink clink</h3>
+            <p></p>
+          </div>
+          <div className="favorite">
+            <button type="submit" className="filterButton">
+              favorite
+            </button>
+          </div>
+        </div>
+        <div className="drinkElement">
+          <div className="picture">
+            Picture
+          </div>
+          <div className="title">
+            <h3>Clink clink</h3>
+          </div>
+          <div className="favorite">
+            <button type="submit" className="filterButton">
+              favorite
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

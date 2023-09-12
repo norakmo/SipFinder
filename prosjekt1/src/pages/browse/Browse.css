@@ -1,16 +1,13 @@
 #root {
-  /* max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem; */
-  text-align: center;
-
-  /*background-color: #ffaec0;*/
+  width: 100vw;
 }
 
 .container {
   display: flex;
-  flex-direction:row;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  height: 80vh;
 }
 
 body {
@@ -22,9 +19,9 @@ body {
   -webkit-text-fill-color: white;
   text-align: left;
   position: relative;
-  margin-left: 0px;
-  width: 25%;
+  margin: 0;
   padding: 2%;
+  flex: 1;
 }
 
 .input {
@@ -34,15 +31,39 @@ body {
 .filterButton {
   background-color: white;
   -webkit-text-fill-color: black;
+  margin: 3%;
 }
 
 .filterButton:hover {
   background-color: gray;
 }
 
-.drinklist{
+.contents{
   background-color: green;
   position: relative;
-  width: 100%;
-  float: right;
+  flex: 4;
+  flex-grow: 4;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
+
+.drinkElement {
+  border: 3px black;
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ .picture {
+  flex: 1;
+  background-color: azure;
+}
+
+.title {
+  flex:4;
+  background-color: blueviolet;
+} 
