@@ -1,0 +1,69 @@
+#root {
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  height: 80vh;
+}
+
+body {
+  background-color: #ffff; /* Replace with your desired background color */
+}
+
+.filter {
+  background-color: blanchedalmond;
+  -webkit-text-fill-color: white;
+  text-align: left;
+  position: relative;
+  margin: 0;
+  padding: 2%;
+  flex: 1;
+}
+
+.input {
+  background-color: white;
+}
+
+.filterButton {
+  background-color: white;
+  -webkit-text-fill-color: black;
+  margin: 3%;
+}
+
+.filterButton:hover {
+  background-color: gray;
+}
+
+.contents{
+  background-color: green;
+  position: relative;
+  flex: 4;
+  flex-grow: 4;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.drinkElement {
+  border: 3px black;
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ .picture {
+  flex: 1;
+  background-color: azure;
+}
+
+.title {
+  flex:4;
+  background-color: blueviolet;
+} 
