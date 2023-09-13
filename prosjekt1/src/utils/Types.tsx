@@ -45,6 +45,10 @@ export interface SimpleDrinkAPI {
   strDrinkThumb: string;
 }
 
+export interface DrinkElement {
+  drink: SimpleDrinkAPI;
+}
+
 //Simplified interface
 export interface Drink {
   id: string;

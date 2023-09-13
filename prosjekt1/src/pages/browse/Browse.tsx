@@ -2,15 +2,21 @@ import { useState } from "react";
 import "./Browse.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { getAllDrinks } from "../../utils/ApiRequests";
+import { ApiResponse, SimpleDrinkAPI } from "../../utils/Types";
+import ListElement from "../../components/ListElement/ListElement";
 
 function Browse() {
   const queryClient = useQueryClient();
-  const [name, setName] = useState<string>("her");
+  const [allDrinks, setAllDrinks] = useState<SimpleDrinkAPI[]>();
   async function getData() {
     await queryClient
       .ensureQueryData({ queryKey: ["getAll"], queryFn: () => getAllDrinks() })
       .then((res) => {
-        setName(res.drinks[0].strDrink);
+        if (res === undefined) {
+          throw console.error("drinks not found");
+        } else {
+          setAllDrinks(res.drinks);
+        }
       });
   }
   getData();
@@ -66,7 +72,19 @@ function Browse() {
           Apply filter
         </button>
       </div>
-      <div className="contents">{name}</div>
+      <div className="contents">
+        {allDrinks === undefined ? (
+          <>
+            <div>Loading ...</div>
+          </>
+        ) : (
+          <>
+            {allDrinks.map((drink: SimpleDrinkAPI) => {
+              return <ListElement drink={drink} key={drink.idDrink} />;
+            })}
+          </>
+        )}
+      </div>
     </div>
   );
 }
