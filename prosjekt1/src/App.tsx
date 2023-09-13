@@ -24,7 +24,7 @@ function App() {
         <div className="space"></div>
         <Routes>
           <Route path={"/"} element={<Home />} />
-          <Route path={"/search"} element={<Browse />} />
+          <Route path={"/browse"} element={<Browse />} />
           <Route path={"/drink"} element={<Drink />} />
 
           {/* <Route path={"/LoginPage"} element={<LoginPage />} /> */}
