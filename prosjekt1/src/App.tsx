@@ -10,7 +10,6 @@ import Browse from "./pages/browse/Browse";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
   const queryClient = new QueryClient();
 
   return (
@@ -26,8 +25,6 @@ function App() {
           <Route path={"/"} element={<Home />} />
           <Route path={"/browse"} element={<Browse />} />
           <Route path={"/drink"} element={<Drink />} />
-
-          {/* <Route path={"/LoginPage"} element={<LoginPage />} /> */}
         </Routes>
         </>
     </Router>
