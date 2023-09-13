@@ -1,0 +1,17 @@
+.drinkElement {
+    border: 3px black;
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+   .picture {
+    flex: 1;
+    background-color: azure;
+  }
+  
+  .title {
+    flex:4;
+    background-color: blueviolet;
+  } 
