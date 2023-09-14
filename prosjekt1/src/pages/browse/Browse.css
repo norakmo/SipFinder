@@ -38,7 +38,7 @@ body {
   background-color: gray;
 }
 
-.contents{
+.contents {
   background-color: green;
   position: relative;
   flex: 4;
@@ -50,3 +50,12 @@ body {
   align-items: stretch;
 }
 
+.favorite {
+  background-color: transparent;
+  -webkit-text-fill-color: black;
+  margin: 3%;
+}
+
+.favorite:hover {
+  background-color: gray;
+}

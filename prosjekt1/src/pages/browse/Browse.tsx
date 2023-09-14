@@ -21,7 +21,7 @@ function Browse() {
   }
   getData();
 
-  // function getState(){
+  // function getLocalState(){
   //   if (localStorage.getItem("button") == "favorite") {
   //     localStorage.setItem("button", "not-favorite")
   //     console.log(localStorage.getItem("button"))
@@ -90,3 +90,17 @@ function Browse() {
 }
 
 export default Browse;
+
+// function getSessionState() {
+//   if (localStorage.getItem("box") == "checked") {
+//     localStorage.setItem("box", "unchecked");
+//     let alcohol = document.getElementById("alcoholic") as HTMLInputElement;
+//     // alcohol.checked = false;
+//   } else if (
+//     localStorage.getItem("box") == "unchecked" ||
+//     localStorage.getItem("box") == null
+//   ) {
+//     let notalcohol = document.getElementById("alcoholic") as HTMLInputElement;
+//     // notalcohol.checked = true;
+//     localStorage.setItem("box", "checked");
+//   }
