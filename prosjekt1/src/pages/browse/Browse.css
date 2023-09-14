@@ -51,7 +51,7 @@ body {
 }
 
 .favorite {
-  background-color: transparent;
+  background-color: red;
   -webkit-text-fill-color: black;
   margin: 3%;
 }

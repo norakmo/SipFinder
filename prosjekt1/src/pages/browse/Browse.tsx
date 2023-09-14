@@ -21,18 +21,31 @@ function Browse() {
   }
   getData();
 
-  // function getLocalState(){
-  //   if (localStorage.getItem("button") == "favorite") {
-  //     localStorage.setItem("button", "not-favorite")
-  //     console.log(localStorage.getItem("button"))
-  //   }
+  function getSessionState(id: string) {
+    let choice = document.getElementById(id) as HTMLInputElement;
+    if (localStorage.getItem(id) == "checked") {
+      localStorage.setItem(id, "unchecked");
+    } else if (
+      localStorage.getItem(id) == "unchecked" ||
+      localStorage.getItem(id) == null
+    ) {
+      localStorage.setItem(id, "checked");
+    }
+    console.log(localStorage.getItem(id));
+    return localStorage.getItem(id);
+  }
 
-  //   else if (localStorage.getItem("button") == "not-favorite" || localStorage.getItem("button") == null){
-  //     localStorage.setItem("button", "favorite")
-  //     console.log(localStorage.getItem("button"))
-  //   }
-
-  // }
+  function filter() {
+    if (getSessionState("alcoholic") == "checked") {
+      const checkbox = document.getElementById(
+        "alcoholic"
+      ) as HTMLInputElement | null;
+      if (checkbox != null) {
+        checkbox.checked = false;
+      }
+    }
+    window.location.reload();
+  }
 
   return (
     <div className="container">
@@ -40,7 +53,11 @@ function Browse() {
         <label> Filters:</label>
         <div>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              id="alcoholic"
+              onClick={() => getSessionState("alcoholic")}
+            />
             Alcoholic
           </label>
         </div>
@@ -53,22 +70,10 @@ function Browse() {
         <div>
           <label>
             <input type="checkbox" />
-            Cocktail glass
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" />
-            Champagne flute
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" />
             Favourite
           </label>
         </div>
-        <button type="submit" className="filterButton">
+        <button type="submit" className="filterButton" onClick={filter}>
           Apply filter
         </button>
       </div>
@@ -90,17 +95,3 @@ function Browse() {
 }
 
 export default Browse;
-
-// function getSessionState() {
-//   if (localStorage.getItem("box") == "checked") {
-//     localStorage.setItem("box", "unchecked");
-//     let alcohol = document.getElementById("alcoholic") as HTMLInputElement;
-//     // alcohol.checked = false;
-//   } else if (
-//     localStorage.getItem("box") == "unchecked" ||
-//     localStorage.getItem("box") == null
-//   ) {
-//     let notalcohol = document.getElementById("alcoholic") as HTMLInputElement;
-//     // notalcohol.checked = true;
-//     localStorage.setItem("box", "checked");
-//   }
