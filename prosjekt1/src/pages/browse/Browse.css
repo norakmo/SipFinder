@@ -1,3 +1,8 @@
+body {
+  margin: 0px;
+  height: 100%;
+}
+
 #root {
   width: 100vw;
 }
@@ -7,15 +12,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  height: 80vh;
+  height: 100%;
 }
 
-body {
-  background-color: #ffff; /* Replace with your desired background color */
-}
 
 .filter {
-  background-color: blanchedalmond;
+  background-color: #f8c2b4;
   -webkit-text-fill-color: white;
   text-align: left;
   position: relative;
@@ -31,7 +33,7 @@ body {
 .filterButton {
   background-color: white;
   -webkit-text-fill-color: black;
-  margin: 3%;
+  margin-right: 10%;
 }
 
 .filterButton:hover {
@@ -39,7 +41,7 @@ body {
 }
 
 .contents{
-  background-color: green;
+  background-color: #F7EDE2;
   position: relative;
   flex: 4;
   flex-grow: 4;
@@ -48,5 +50,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 

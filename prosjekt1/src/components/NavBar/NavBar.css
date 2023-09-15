@@ -1,15 +1,19 @@
 .NavBar {
+    background-color: #f8c2b4;
+}
+
+nav {
     padding-top: 1%;
     top: 0;
     position: sticky;
     width: 100%;
     text-align: center;
-    z-index: 50;
-    background-color: aquamarine;
+    z-index: 999;
 }
 
 .NavBarLinks {
-    background-color: #FFAEC0;
+    background-color: #E5989B;
+    /*background-color: #FFAEC0;*/
 }
 
 .HomeLinkLogo {
