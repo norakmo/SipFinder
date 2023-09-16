@@ -1,0 +1,57 @@
+/*
+ * This file includes:
+ * - Theme colors and font
+ * - Body styling
+ * - Basic styling for buttons and links
+ */
+
+ :root {
+    --primary-color: #ffaec0;
+    --secondary-color: #ff66b3;
+    --accent-color: #adce74;
+    --bg-color: #efefef;
+    --text-color1: black;
+    --font-family: 'Roboto', sans-serif;
+ }
+
+ * {
+    font-family: var(--font-family), Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+ }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color1);
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+ a {
+     text-decoration: inherit;
+ }
+
+ a:hover {
+     color: var(--accent-color);
+ }
+
+ h1 {
+     font-size: 3.2em;
+     line-height: 1.1;
+ }
+
+ button {
+     border-radius: 8px;
+     border: 1px solid transparent;
+     padding: 0.6em 1.2em;
+     font-size: 1em;
+     font-family: inherit;
+     background-color: var(--primary-color);
+ }
+
+ button:hover {
+     border-color: var(--secondary-color);
+ }
