@@ -49,6 +49,14 @@ export interface DrinkElement {
   drink: SimpleDrinkAPI;
 }
 
+export interface CarouselDrink {
+  drinkId: string;
+}
+
+export interface Carousel {
+  drinkIds: string[];
+}
+
 //Simplified interface
 export interface Drink {
   id: string;
@@ -62,6 +70,10 @@ export interface Drink {
 
 export interface ApiResponse {
   drinks: SimpleDrinkAPI[];
+}
+
+export interface ApiResponseSingleDrink {
+  drinks: DrinkAPI[];
 }
 
 export function transformDrink(drinkAPI: DrinkAPI): Drink {
