@@ -4,9 +4,7 @@ import { useState } from "react";
 import {
   ApiResponseSingleDrink,
   CarouselDrink,
-  Drink,
   DrinkAPI,
-  transformDrink,
 } from "../../utils/Types";
 
 export default function CarouselItem({ drinkId }: CarouselDrink) {
