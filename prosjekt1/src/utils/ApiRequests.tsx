@@ -1,12 +1,25 @@
 import { ApiResponse } from "./Types";
 
-export const getAllDrinks=(): Promise<ApiResponse>=> {
-    return fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error('Network response was not ok');
-            }
+export const getAllDrinks = (): Promise<ApiResponse> => {
+  return fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"
+  ).then((res) => {
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-            return res.json() as Promise<ApiResponse>;
-        });
-}
+    return res.json() as Promise<ApiResponse>;
+  });
+};
+
+export const getNonAlcDrinks = (): Promise<ApiResponse> => {
+  return fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+  ).then((res) => {
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    return res.json() as Promise<ApiResponse>;
+  });
+};
