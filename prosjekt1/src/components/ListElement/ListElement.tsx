@@ -30,7 +30,7 @@ export default function ListElement({ drink }: DrinkElement) {
     <div className="drinkElement">
       <img src={drink.strDrinkThumb} className="picture" />
       <div className="title">
-        <h3>{drink.strDrink}</h3>
+        <h2>{drink.strDrink}</h2>
       </div>
       <div className="favorite">
         <button
