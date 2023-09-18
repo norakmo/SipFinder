@@ -21,43 +21,13 @@ function Browse() {
   }
   getData();
 
-  function getSessionState(id: string) {
-    let choice = document.getElementById(id) as HTMLInputElement;
-    if (localStorage.getItem(id) == "checked") {
-      localStorage.setItem(id, "unchecked");
-    } else if (
-      localStorage.getItem(id) == "unchecked" ||
-      localStorage.getItem(id) == null
-    ) {
-      localStorage.setItem(id, "checked");
-    }
-    console.log(localStorage.getItem(id));
-    return localStorage.getItem(id);
-  }
-
-  function filter() {
-    if (getSessionState("alcoholic") == "checked") {
-      const checkbox = document.getElementById(
-        "alcoholic"
-      ) as HTMLInputElement | null;
-      if (checkbox != null) {
-        checkbox.checked = false;
-      }
-    }
-    window.location.reload();
-  }
-
   return (
     <div className="container">
       <div className="filter">
         <label> Filters:</label>
         <div>
           <label>
-            <input
-              type="checkbox"
-              id="alcoholic"
-              onClick={() => getSessionState("alcoholic")}
-            />
+            <input type="checkbox" id="alcoholic" />
             Alcoholic
           </label>
         </div>
@@ -73,7 +43,7 @@ function Browse() {
             Favourite
           </label>
         </div>
-        <button type="submit" className="filterButton" onClick={filter}>
+        <button type="submit" className="filterButton">
           Apply filter
         </button>
       </div>
