@@ -15,7 +15,6 @@ body {
   height: 100%;
 }
 
-
 .filter {
   background-color: #f8c2b4;
   -webkit-text-fill-color: white;
@@ -40,8 +39,8 @@ body {
   background-color: gray;
 }
 
-.contents{
-  background-color: #F7EDE2;
+.contents {
+  background-color: green;
   position: relative;
   flex: 4;
   flex-grow: 4;
@@ -50,7 +49,14 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding-left: 3%;
-  padding-right: 3%;
 }
 
+.favorite {
+  background-color: red;
+  -webkit-text-fill-color: black;
+  margin: 3%;
+}
+
+.favorite:hover {
+  background-color: gray;
+}

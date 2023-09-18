@@ -1,29 +1,29 @@
 .drinkElement {
-    border: 3px black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1vh;
-    border-radius: 1vh;
-  }
+  border: 3px black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  border-radius: 1vh;
+}
 
-  .drinkElement:hover {
-    background-color: azure;
-    padding: 1vh;
-  }
-  
-   .picture {
-    width: 7vw;
-    height: 14vh;
-    border-radius: 5%;
-  }
-  
-  .title {
-    flex:4;
-    padding-left:3%;
-  } 
+.drinkElement:hover {
+  background-color: azure;
+  padding: 1vh;
+}
 
-  h2 {
-    font-weight: 500;
-  }
+.picture {
+  width: 7vw;
+  height: 14vh;
+  border-radius: 5%;
+}
+
+.title {
+  flex: 4;
+  padding-left: 3%;
+}
+
+h2 {
+  font-weight: 500;
+}

@@ -21,26 +21,13 @@ function Browse() {
   }
   getData();
 
-  // function getState(){
-  //   if (localStorage.getItem("button") == "favorite") {
-  //     localStorage.setItem("button", "not-favorite")
-  //     console.log(localStorage.getItem("button"))
-  //   }
-
-  //   else if (localStorage.getItem("button") == "not-favorite" || localStorage.getItem("button") == null){
-  //     localStorage.setItem("button", "favorite")
-  //     console.log(localStorage.getItem("button"))
-  //   }
-
-  // }
-
   return (
     <div className="container">
       <div className="filter">
         <label> Filters:</label>
         <div>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" id="alcoholic" />
             Alcoholic
           </label>
         </div>
@@ -48,18 +35,6 @@ function Browse() {
           <label>
             <input type="checkbox" />
             Non-alcoholic
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" />
-            Cocktail glass
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="checkbox" />
-            Champagne flute
           </label>
         </div>
         <div>
