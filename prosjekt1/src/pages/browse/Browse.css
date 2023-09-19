@@ -30,15 +30,44 @@ body {
   background-color: white;
 }
 
+h3 {
+  margin: 2%;
+}
+
 .filterButton {
-  background-color: white;
+  background-color: var(--secondary-color);
   -webkit-text-fill-color: black;
   margin-right: 10%;
   margin-top: 10%;
-  height: 4vh;
-  width: 5vw;
+  height: 6vh;
+  width: 100%;
   text-align: center;
-  font-size: 1em;
+  font-size: 3vh;
+  border: none;
+  border-radius: 3%;
+}
+
+.clearButton {
+  background-color: var(--bg-color);
+  -webkit-text-fill-color: black;
+  margin-right: 10%;
+  margin-top: 10%;
+  height: 6vh;
+  width: 100%;
+  text-align: center;
+  font-size: 3vh;
+  border: none;
+  border-radius: 3;
+}
+
+.clearButton:hover {
+  background-color: var(--primary-color);
+  border: 0.2em solid var(--secondary-color);
+}
+
+.filterButton:hover {
+  background-color: var(--primary-color);
+  border: 0.2em solid var(--secondary-color);
 }
 
 /*Contents CSS*/
@@ -82,5 +111,5 @@ body {
 
 .notfavorite:hover {
   background-color: var(--accent-color);
-  -webkit-text-fill-color: black;
+  -webkit-text-fill-color: var(--bg-color);
 }

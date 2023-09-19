@@ -185,7 +185,7 @@ function Browse() {
   return (
     <div className="container">
       <div className="filter">
-        <label> Filters:</label>
+        <label> <h3>Filters</h3></label>
         <div>
           <label>
             <input
@@ -216,7 +216,7 @@ function Browse() {
               checked={favorite}
               id="favourite"
             />
-            Filter
+            Favorite
           </label>
         </div>
         <button type="submit" className="filterButton" onClick={handleFilter}>
