@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { getAllDrinks } from "../../utils/ApiRequests";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CarouselItem from "../../components/CarouselItem/CarouselItem";
 import "./home.css";
 

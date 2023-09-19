@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { ApiResponse } from "../utils/Types";
-import { useState, useEffect } from "react";
+//import { useQuery } from "@tanstack/react-query";
+//import { ApiResponse } from "../utils/Types";
+//import { useState, useEffect } from "react";
 
 export default function Drink() {
   // const [id, setId] = useState<string | null>(null)

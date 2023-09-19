@@ -1,29 +1,27 @@
-import { SimpleDrinkAPI, DrinkElement } from "../../utils/Types";
+import { useEffect, useState } from "react";
+import { DrinkElement } from "../../utils/Types";
 import "./ListElement.css";
 
-function getLocalState(b: string) {
-  let color: string = "";
-  if (localStorage.getItem(b) == "favorite") {
-    localStorage.setItem(b, "not-favorite");
-    color = "filterButton";
-    // console.log(localStorage.getItem(b));
-    // console.log(b);
-  } else if (
-    localStorage.getItem(b) == "not-favorite" ||
-    localStorage.getItem(b) == null
-  ) {
-    localStorage.setItem(b, "favorite");
-    color = "favorite";
-    // console.log(localStorage.getItem(b));
-    // console.log(b);
-  }
-  return color;
-}
-
 export default function ListElement({ drink }: DrinkElement) {
+  const [color, setColor] = useState<string>();
+  useEffect(() => {
+    if (localStorage.getItem(drink.idDrink) == "favorite") {
+      setColor("favorite");
+    } else {
+      setColor("filterButton");
+    }
+  }, []);
+
   const handleFavoriteClick = () => {
-    getLocalState(drink.strDrink);
-    window.location.reload();
+    const state: string | null = localStorage.getItem(drink.idDrink);
+    console.log(state);
+    if (state == "favorite") {
+      localStorage.setItem(drink.idDrink, "not-favorite");
+      setColor("filterButton");
+    } else {
+      localStorage.setItem(drink.idDrink, "favorite");
+      setColor("favorite");
+    }
   };
 
   return (
@@ -33,11 +31,7 @@ export default function ListElement({ drink }: DrinkElement) {
         <h2>{drink.strDrink}</h2>
       </div>
       <div className="favorite">
-        <button
-          type="submit"
-          className={getLocalState(drink.strDrink)}
-          onClick={handleFavoriteClick}
-        >
+        <button type="submit" className={color} onClick={handleFavoriteClick}>
           favorite
         </button>
       </div>
