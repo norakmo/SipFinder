@@ -15,6 +15,8 @@ function Browse() {
   const [nonAlcoholic, setNonAlcoholic] = useState<boolean>(false);
   const [favorite, setFavourite] = useState<boolean>(false);
 
+  /*Gets data on all drinks from the API. EnsureQueryData first checks the query cache and only sends
+  a request to the API if necessary.*/
   async function getData() {
     await queryClient
       .ensureQueryData({ queryKey: ["getAll"], queryFn: () => getAllDrinks() })
@@ -23,9 +25,18 @@ function Browse() {
           throw console.error("drinks not found");
         } else {
           setAllDrinks(res.drinks);
-          console.log("her og", allDrinks);
         }
       });
+  }
+
+  function getFavorites() {
+    if (!(allDrinks === undefined)) {
+      const favorites: SimpleDrinkAPI[] = allDrinks.filter(
+        (drink) => localStorage.getItem(drink.idDrink) == "favorite"
+      );
+      return favorites;
+    }
+    return [];
   }
 
   useEffect(() => {
@@ -80,23 +91,57 @@ function Browse() {
     if (allDrinks === undefined || nonAlcDrinks === undefined) {
       throw console.error("drinks not found");
     }
+    //no filters
     if (!alcoholic && !nonAlcoholic && !favorite) {
       setFilter(false);
       sessionStorage.setItem("filter", "false");
     }
+    //both alcoholic and non-alcoholic -> no results
     if (alcoholic && nonAlcoholic) {
       setFilteredDrinks([]);
     }
-    if (alcoholic && !nonAlcoholic) {
+
+    //alcoholic drinks
+    if (alcoholic && !nonAlcoholic && !favorite) {
       setFilteredDrinks(
         allDrinks.filter((drink) => !nonAlcDrinks.includes(drink.idDrink))
       );
     }
-    if (!alcoholic && nonAlcoholic) {
+
+    //non-alcoholic drinks
+    if (!alcoholic && nonAlcoholic && !favorite) {
       setFilteredDrinks(
         allDrinks.filter((drink) => nonAlcDrinks.includes(drink.idDrink))
       );
     }
+
+    //favorite drinks
+    if (!alcoholic && !nonAlcoholic && favorite) {
+      setFilteredDrinks(getFavorites());
+    }
+
+    //favorite alcoholic drinks
+    if (alcoholic && !nonAlcoholic && favorite) {
+      setFilteredDrinks(
+        allDrinks.filter(
+          (drink) =>
+            !nonAlcDrinks.includes(drink.idDrink) &&
+            getFavorites().includes(drink)
+        )
+      );
+    }
+
+    //favorite non-alcoholic drinks
+    if (!alcoholic && nonAlcoholic && favorite) {
+      setFilteredDrinks(
+        allDrinks.filter(
+          (drink) =>
+            nonAlcDrinks.includes(drink.idDrink) &&
+            getFavorites().includes(drink)
+        )
+      );
+    }
+
     console.log("alc", alcoholic);
     console.log("nonalc", nonAlcoholic);
     console.log("fav", favorite);
