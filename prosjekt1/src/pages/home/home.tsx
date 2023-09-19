@@ -50,6 +50,15 @@ export default function Home() {
 
   return (
     <div className="carousel">
+      <div className="carousel-actions" id="button-prev-container">
+        <button
+          id="carousel-button-prev"
+          aria-label="Previous"
+          onClick={handleMoveToPrevSlide}
+        >
+          &#60;
+        </button>
+      </div>
       {allIds === undefined ? (
         <>
           <div>Loading ...</div>
@@ -62,20 +71,13 @@ export default function Home() {
           />
         </>
       )}
-      <div className="carousel-actions">
-        <button
-          id="carousel-button-prev"
-          aria-label="Previous"
-          onClick={handleMoveToPrevSlide}
-        >
-          Previous
-        </button>
+      <div className="carousel-actions" id="button-next-container">
         <button
           id="carousel-button-next"
           aria-label="Next"
           onClick={handleMoveToNextSlide}
         >
-          Next
+          &gt;
         </button>
       </div>
     </div>
