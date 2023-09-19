@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/home/home";
-import "./App.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Drink from "./components/Drink";
-
 import Browse from "./pages/browse/Browse";
-import "./App.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./assets/styles.css";
 
 function App() {
   const queryClient = new QueryClient();

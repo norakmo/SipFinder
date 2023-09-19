@@ -1,8 +1,6 @@
-.NavBar {
-    background-color: #f8c2b4;
-}
-
 nav {
+    background-color: var(--primary-color);
+    color: var(--text-color1);
     padding-top: 1%;
     top: 0;
     position: sticky;
@@ -12,8 +10,8 @@ nav {
 }
 
 .NavBarLinks {
-    background-color: #E5989B;
-    /*background-color: #FFAEC0;*/
+    background-color: var(--secondary-color);
+    /*gammel farge: #E5989B*/
 }
 
 .HomeLinkLogo {
@@ -24,27 +22,26 @@ nav {
 .HomeLink {
     padding-right: 1%;
     padding-left: 1%;
-    color: black;
-    
+    color: var(--text-color1);
 }
 
 .BrowseLink {
     padding-right: 1%;
     padding-left: 1%;
-    color: black;
+    color: var(--text-color1);
 }
 
 .HomeLink:hover {
-    color: black;
-    background-color: #FF66B3;
+    color: var(--text-color1);
+    background-color: var(--accent-color);
 }
 
 .BrowseLink:hover {
-    color: black;
-    background-color: #FF66B3;
+    color: var(--text-color1);
+    background-color: var(--accent-color);
 }
 
 .HomeLinkLogo:hover {
-    color: black;
+    color: var(--text-color1)
 }
 

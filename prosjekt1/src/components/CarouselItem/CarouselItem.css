@@ -1,5 +1,12 @@
 img {
-    width: 100%;
-        max-width: 600px;
-        height: auto;
+    width: 40vh;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border: 0.2em solid black;
+}
+
+.drinkname {
+    font-size: 1.5em;
+    font-family: 'Oswald', sans-serif;
 }
