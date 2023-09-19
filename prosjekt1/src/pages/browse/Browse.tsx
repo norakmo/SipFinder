@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Browse.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { getAllDrinks, getNonAlcDrinks } from "../../utils/ApiRequests";
-import { ApiResponse, SimpleDrinkAPI } from "../../utils/Types";
+import { SimpleDrinkAPI } from "../../utils/Types";
 import ListElement from "../../components/ListElement/ListElement";
 
 function Browse() {
@@ -31,23 +31,31 @@ function Browse() {
   useEffect(() => {
     getData();
     getNonAlcData();
+    if (sessionStorage.getItem("filter") == "true") {
+      if (sessionStorage.getItem("alcoholic") == "true") {
+        setAlcoholic(true);
+      }
+      if (sessionStorage.getItem("nonAlcoholic") == "true") {
+        setNonAlcoholic(true);
+      }
+      if (sessionStorage.getItem("favourite") == "true") {
+        setFavourite(true);
+      }
+      handleFilter();
+    }
     if (sessionStorage.getItem("alcoholic") == null)
       sessionStorage.setItem("alcoholic", "false");
     if (sessionStorage.getItem("nonAlcoholic") == null)
       sessionStorage.setItem("nonAlcoholic", "false");
     if (sessionStorage.getItem("favourite") == null)
       sessionStorage.setItem("favourite", "false");
-    if (sessionStorage.getItem("alcoholic") == "true") {
-      setAlcoholic(true);
-    }
-    if (sessionStorage.getItem("nonAlcoholic") == "true") {
-      setNonAlcoholic(true);
-    }
-    if (sessionStorage.getItem("favourite") == "true") {
-      setFavourite(true);
-    }
-    setFilter(true);
   }, []);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("filter") == "true") {
+      handleFilter();
+    }
+  }, [nonAlcDrinks, allDrinks]);
 
   async function getNonAlcData() {
     await queryClient
@@ -69,11 +77,12 @@ function Browse() {
   }, [filter]);
 
   async function applyFilter() {
-    if (!alcoholic && !nonAlcoholic && !favorite) {
-      setFilter(false);
-    }
     if (allDrinks === undefined || nonAlcDrinks === undefined) {
       throw console.error("drinks not found");
+    }
+    if (!alcoholic && !nonAlcoholic && !favorite) {
+      setFilter(false);
+      sessionStorage.setItem("filter", "false");
     }
     if (alcoholic && nonAlcoholic) {
       setFilteredDrinks([]);
@@ -88,20 +97,10 @@ function Browse() {
         allDrinks.filter((drink) => nonAlcDrinks.includes(drink.idDrink))
       );
     }
+    console.log("alc", alcoholic);
+    console.log("nonalc", nonAlcoholic);
+    console.log("fav", favorite);
   }
-
-  // function getState(){
-  //   if (sessionStorage.getItem("button") == "favorite") {
-  //     sessionStorage.setItem("button", "not-favorite")
-  //     console.log(sessionStorage.getItem("button"))
-  //   }
-
-  //   else if (sessionStorage.getItem("button") == "not-favorite" || sessionStorage.getItem("button") == null){
-  //     sessionStorage.setItem("button", "favorite")
-  //     console.log(sessionStorage.getItem("button"))
-  //   }
-
-  // }
 
   function handleClickAlcoholic() {
     sessionStorage.setItem("alcoholic", (!alcoholic).toString());
@@ -125,9 +124,15 @@ function Browse() {
     sessionStorage.setItem("alcoholic", "false");
     sessionStorage.setItem("nonAlcoholic", "false");
     sessionStorage.setItem("favourite", "false");
+    sessionStorage.setItem("filter", "false");
   }
 
-  const handleFilter = () => setFilter(true);
+  function handleFilter() {
+    if (!filter) {
+      setFilter(true);
+      sessionStorage.setItem("filter", "true");
+    } else applyFilter();
+  }
 
   return (
     <div className="container">
