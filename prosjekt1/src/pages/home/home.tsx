@@ -18,15 +18,13 @@ export default function Home() {
       })
       .then((res) => {
         setAllIds(res.drinks.map((drink) => drink.idDrink));
-        console.log("hallais");
+        console.log(res.drinks);
       });
   }
 
   if (allIds == undefined) {
     getData();
   }
-
-  console.log(currentItem);
 
   const handleMoveToNextSlide = function () {
     // check if last slide has been reached
