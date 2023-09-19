@@ -15,8 +15,8 @@ function Browse() {
   const [nonAlcoholic, setNonAlcoholic] = useState<boolean>(false);
   const [favorite, setFavourite] = useState<boolean>(false);
 
-  /*Gets data on all drinks from the API. EnsureQueryData first checks the query cache and only sends
-  a request to the API if necessary.*/
+  /* Gets data on all drinks from the API. EnsureQueryData first checks the query cache and only sends
+  a request to the API if necessary. The drinks are saved in "allDrinks" */
   async function getData() {
     await queryClient
       .ensureQueryData({ queryKey: ["getAll"], queryFn: () => getAllDrinks() })
@@ -29,6 +29,7 @@ function Browse() {
       });
   }
 
+  /* Returns a list of favorite drinks. Favorites are stored in localStorage.*/
   function getFavorites() {
     if (!(allDrinks === undefined)) {
       const favorites: SimpleDrinkAPI[] = allDrinks.filter(
@@ -39,6 +40,113 @@ function Browse() {
     return [];
   }
 
+  /* Gets a list of the ids of all non-alcoholic drinks from the API (or cache) 
+  and stores them in "nonAlcDrinks"*/
+  async function getNonAlcData() {
+    await queryClient
+      .ensureQueryData({
+        queryKey: ["getNonAlc"],
+        queryFn: () => getNonAlcDrinks(),
+      })
+      .then((res) => {
+        if (res === undefined) {
+          throw console.error("drinks not found");
+        } else {
+          setNonAlcDrinks(res.drinks.map((drink) => drink.idDrink));
+        }
+      });
+  }
+
+  /* Puts the drinks that match the ckecked attributes in the "filteredDrinks"-list */
+  async function applyFilter() {
+    if (allDrinks === undefined || nonAlcDrinks === undefined) {
+      throw console.error("drinks not found");
+    }
+    //no filters
+    if (!alcoholic && !nonAlcoholic && !favorite) {
+      setFilter(false);
+    }
+    //both alcoholic and non-alcoholic -> no results
+    if (alcoholic && nonAlcoholic) {
+      setFilteredDrinks([]);
+    }
+    //alcoholic drinks
+    if (alcoholic && !nonAlcoholic && !favorite) {
+      setFilteredDrinks(
+        allDrinks.filter((drink) => !nonAlcDrinks.includes(drink.idDrink))
+      );
+    }
+    //non-alcoholic drinks
+    if (!alcoholic && nonAlcoholic && !favorite) {
+      setFilteredDrinks(
+        allDrinks.filter((drink) => nonAlcDrinks.includes(drink.idDrink))
+      );
+    }
+    //favorite drinks
+    if (!alcoholic && !nonAlcoholic && favorite) {
+      setFilteredDrinks(getFavorites());
+    }
+    //favorite alcoholic drinks
+    if (alcoholic && !nonAlcoholic && favorite) {
+      setFilteredDrinks(
+        allDrinks.filter(
+          (drink) =>
+            !nonAlcDrinks.includes(drink.idDrink) &&
+            getFavorites().includes(drink)
+        )
+      );
+    }
+    //favorite non-alcoholic drinks
+    if (!alcoholic && nonAlcoholic && favorite) {
+      setFilteredDrinks(
+        allDrinks.filter(
+          (drink) =>
+            nonAlcDrinks.includes(drink.idDrink) &&
+            getFavorites().includes(drink)
+        )
+      );
+    }
+
+    //update sessionStorage
+    sessionStorage.setItem("alcoholic", alcoholic.toString());
+    sessionStorage.setItem("nonAlcoholic", nonAlcoholic.toString());
+    sessionStorage.setItem("favourite", favorite.toString());
+  }
+
+  //Sets the alcoholic-state to the opposite of the previous value
+  function handleClickAlcoholic() {
+    setAlcoholic(!alcoholic);
+  }
+  //Sets the nonAlcoholic-state to the opposite of the previous value
+  function handleClickNonAlcoholic() {
+    setNonAlcoholic(!nonAlcoholic);
+  }
+  //Sets the favorite-state to the opposite of the previous value
+  function handleClickFavourite() {
+    setFavourite(!favorite);
+  }
+
+  //Resets all filters and updates sessionStorage
+  function handleClear() {
+    setFilter(false);
+    setAlcoholic(false);
+    setNonAlcoholic(false);
+    setFavourite(false);
+    sessionStorage.setItem("alcoholic", "false");
+    sessionStorage.setItem("nonAlcoholic", "false");
+    sessionStorage.setItem("favourite", "false");
+    sessionStorage.setItem("filter", "false");
+  }
+
+  //Applies a filter to the list or updates the already existing filters
+  function handleFilter() {
+    if (!filter) {
+      setFilter(true);
+      sessionStorage.setItem("filter", "true");
+    } else applyFilter();
+  }
+
+  //Initial useEffect that runs at mount. Gets drink-data and restores the states from sessionStorage.
   useEffect(() => {
     getData();
     getNonAlcData();
@@ -62,122 +170,17 @@ function Browse() {
       sessionStorage.setItem("favourite", "false");
   }, []);
 
+  //Applies filtes if saved in sessionStorage
   useEffect(() => {
     if (sessionStorage.getItem("filter") == "true") {
       handleFilter();
     }
   }, [nonAlcDrinks, allDrinks]);
 
-  async function getNonAlcData() {
-    await queryClient
-      .ensureQueryData({
-        queryKey: ["getNonAlc"],
-        queryFn: () => getNonAlcDrinks(),
-      })
-      .then((res) => {
-        if (res === undefined) {
-          throw console.error("drinks not found");
-        } else {
-          setNonAlcDrinks(res.drinks.map((drink) => drink.idDrink));
-          console.log("her", nonAlcDrinks);
-        }
-      });
-  }
+  //Applies filters if filter-state is set to true
   useEffect(() => {
     if (filter) applyFilter();
   }, [filter]);
-
-  async function applyFilter() {
-    if (allDrinks === undefined || nonAlcDrinks === undefined) {
-      throw console.error("drinks not found");
-    }
-    //no filters
-    if (!alcoholic && !nonAlcoholic && !favorite) {
-      setFilter(false);
-      sessionStorage.setItem("filter", "false");
-    }
-    //both alcoholic and non-alcoholic -> no results
-    if (alcoholic && nonAlcoholic) {
-      setFilteredDrinks([]);
-    }
-
-    //alcoholic drinks
-    if (alcoholic && !nonAlcoholic && !favorite) {
-      setFilteredDrinks(
-        allDrinks.filter((drink) => !nonAlcDrinks.includes(drink.idDrink))
-      );
-    }
-
-    //non-alcoholic drinks
-    if (!alcoholic && nonAlcoholic && !favorite) {
-      setFilteredDrinks(
-        allDrinks.filter((drink) => nonAlcDrinks.includes(drink.idDrink))
-      );
-    }
-
-    //favorite drinks
-    if (!alcoholic && !nonAlcoholic && favorite) {
-      setFilteredDrinks(getFavorites());
-    }
-
-    //favorite alcoholic drinks
-    if (alcoholic && !nonAlcoholic && favorite) {
-      setFilteredDrinks(
-        allDrinks.filter(
-          (drink) =>
-            !nonAlcDrinks.includes(drink.idDrink) &&
-            getFavorites().includes(drink)
-        )
-      );
-    }
-
-    //favorite non-alcoholic drinks
-    if (!alcoholic && nonAlcoholic && favorite) {
-      setFilteredDrinks(
-        allDrinks.filter(
-          (drink) =>
-            nonAlcDrinks.includes(drink.idDrink) &&
-            getFavorites().includes(drink)
-        )
-      );
-    }
-
-    console.log("alc", alcoholic);
-    console.log("nonalc", nonAlcoholic);
-    console.log("fav", favorite);
-  }
-
-  function handleClickAlcoholic() {
-    sessionStorage.setItem("alcoholic", (!alcoholic).toString());
-    setAlcoholic(!alcoholic);
-  }
-  function handleClickNonAlcoholic() {
-    sessionStorage.setItem("nonAlcoholic", (!nonAlcoholic).toString());
-    setNonAlcoholic(!nonAlcoholic);
-  }
-
-  function handleClickFavourite() {
-    sessionStorage.setItem("favourite", (!favorite).toString());
-    setFavourite(!favorite);
-  }
-
-  function handleClear() {
-    setFilter(false);
-    setAlcoholic(false);
-    setNonAlcoholic(false);
-    setFavourite(false);
-    sessionStorage.setItem("alcoholic", "false");
-    sessionStorage.setItem("nonAlcoholic", "false");
-    sessionStorage.setItem("favourite", "false");
-    sessionStorage.setItem("filter", "false");
-  }
-
-  function handleFilter() {
-    if (!filter) {
-      setFilter(true);
-      sessionStorage.setItem("filter", "true");
-    } else applyFilter();
-  }
 
   return (
     <div className="container">
