@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Browse.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { getAllDrinks } from "../../utils/ApiRequests";
-import { ApiResponse, SimpleDrinkAPI } from "../../utils/Types";
+import { SimpleDrinkAPI } from "../../utils/Types";
 import ListElement from "../../components/ListElement/ListElement";
 
 function Browse() {

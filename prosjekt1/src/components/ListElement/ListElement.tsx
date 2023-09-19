@@ -1,4 +1,4 @@
-import { SimpleDrinkAPI, DrinkElement } from "../../utils/Types";
+import { DrinkElement } from "../../utils/Types";
 import "./ListElement.css";
 
 function getLocalState(b: string) {

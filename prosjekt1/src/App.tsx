@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Router>
+        <Router basename="project1">
           <>
             <div className="NavigationBar">
               <NavBar />
