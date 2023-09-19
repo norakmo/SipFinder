@@ -5,40 +5,40 @@
  * - Basic styling for links
  */
 
- :root {
-    --primary-color: #ffaec0;
-    --secondary-color: #ff66b3;
-    --accent-color: #ff9cca;
-    --bg-color: #efefef;
-    --text-color1: black;
-    --font-family: 'Roboto', sans-serif;
- }
+:root {
+  --primary-color: #ffaec0;
+  --secondary-color: #ff66b3;
+  --accent-color: #ff9cca;
+  --bg-color: #efefef;
+  --text-color1: black;
+  --font-family: "Roboto", sans-serif;
+}
 
- * {
-    font-family: var(--font-family), Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
- }
+* {
+  font-family: var(--font-family), Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+}
 
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color1);
-    margin: 0;
-    line-height: 1.5;
-    font-weight: 400;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-  }
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color1);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
 
- a {
-     text-decoration: inherit;
- }
+a {
+  text-decoration: inherit;
+}
 
- a:hover {
-     color: var(--accent-color);
- }
+a:hover {
+  color: var(--accent-color);
+}
 
- h1 {
-     font-size: 3.2em;
-     line-height: 1.1;
- }
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
