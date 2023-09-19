@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SimpleDrinkAPI, DrinkElement } from "../../utils/Types";
+import { DrinkElement } from "../../utils/Types";
 import "./ListElement.css";
 
 export default function ListElement({ drink }: DrinkElement) {
