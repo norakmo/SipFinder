@@ -5,7 +5,7 @@ function getLocalState(b: string) {
   let color: string = "";
   if (localStorage.getItem(b) == "favorite") {
     localStorage.setItem(b, "not-favorite");
-    color = "filterButton";
+    color = "notfavorite";
     // console.log(localStorage.getItem(b));
     // console.log(b);
   } else if (
@@ -38,7 +38,7 @@ export default function ListElement({ drink }: DrinkElement) {
           className={getLocalState(drink.strDrink)}
           onClick={handleFavoriteClick}
         >
-          favorite
+          ♥
         </button>
       </div>
     </div>

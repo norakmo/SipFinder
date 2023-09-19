@@ -1,12 +1,13 @@
-img {
-    width: 40vh;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    border: 0.2em solid black;
+.carousel-item img {
+  width: 40vh;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  border: 0.2em solid black;
 }
 
 .drinkname {
-    font-size: 1.5em;
-    font-family: 'Oswald', sans-serif;
+  font-size: 1.1em;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
 }

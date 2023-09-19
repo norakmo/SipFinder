@@ -15,8 +15,9 @@ body {
   height: 100%;
 }
 
+/*Filter CSS*/
 .filter {
-  background-color: #f8c2b4;
+  background-color: var(--accent-color);
   -webkit-text-fill-color: white;
   text-align: left;
   position: relative;
@@ -33,14 +34,16 @@ body {
   background-color: white;
   -webkit-text-fill-color: black;
   margin-right: 10%;
+  margin-top: 10%;
+  height: 4vh;
+  width: 5vw;
+  text-align: center;
+  font-size: 1em;
 }
 
-.filterButton:hover {
-  background-color: gray;
-}
-
+/*Contents CSS*/
 .contents {
-  background-color: green;
+  background-color: var(--bg-color);
   position: relative;
   flex: 4;
   flex-grow: 4;
@@ -49,14 +52,35 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.notfavorite {
+  background-color: var(--accent-color);
+  -webkit-text-fill-color: var(--accent-color);
+  margin-right: 10%;
+  border-radius: 100%;
+  width: 4vw;
+  height: 4vw;
+  text-align: center;
+  font-size: 3vw;
+  border: none;
 }
 
 .favorite {
-  background-color: red;
+  background-color: var(--accent-color);
   -webkit-text-fill-color: black;
-  margin: 3%;
+  margin-right: 10%;
+  border-radius: 100%;
+  width: 4vw;
+  height: 4vw;
+  text-align: center;
+  font-size: 3vw;
+  border: none;
 }
 
-.favorite:hover {
-  background-color: gray;
+.notfavorite:hover {
+  background-color: var(--accent-color);
+  -webkit-text-fill-color: black;
 }
