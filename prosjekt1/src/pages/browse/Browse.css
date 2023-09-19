@@ -1,3 +1,8 @@
+body {
+  margin: 0px;
+  height: 100%;
+}
+
 #root {
   width: 100vw;
 }
@@ -7,15 +12,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  height: 80vh;
-}
-
-body {
-  background-color: #ffff; /* Replace with your desired background color */
+  height: 100%;
 }
 
 .filter {
-  background-color: blanchedalmond;
+  background-color: #f8c2b4;
   -webkit-text-fill-color: white;
   text-align: left;
   position: relative;
@@ -31,14 +32,14 @@ body {
 .filterButton {
   background-color: white;
   -webkit-text-fill-color: black;
-  margin: 3%;
+  margin-right: 10%;
 }
 
 .filterButton:hover {
   background-color: gray;
 }
 
-.contents{
+.contents {
   background-color: green;
   position: relative;
   flex: 4;
@@ -50,3 +51,12 @@ body {
   align-items: stretch;
 }
 
+.favorite {
+  background-color: red;
+  -webkit-text-fill-color: black;
+  margin: 3%;
+}
+
+.favorite:hover {
+  background-color: gray;
+}
