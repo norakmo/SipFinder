@@ -3,6 +3,7 @@ import CarouselItem from "../../components/CarouselItem/CarouselItem";
 import "./Drink.css";
 
 export default function Drink() {
+  // Gets the id from the path
   const { drinkId } = useParams();
   return (
     <div id="drinkCont">

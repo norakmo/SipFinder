@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 export default function ListElement({ drink }: DrinkElement) {
   const [color, setColor] = useState<string>();
+
+  // Checks if the drink is saved as a favorite in localStorage
   useEffect(() => {
     if (localStorage.getItem(drink.idDrink) == "favorite") {
       setColor("favorite");
@@ -13,6 +15,7 @@ export default function ListElement({ drink }: DrinkElement) {
     }
   }, []);
 
+  // Makes a drink a favorite or removes it from favorites
   const handleFavoriteClick = () => {
     const state: string | null = localStorage.getItem(drink.idDrink);
     if (state == "favorite") {
@@ -24,6 +27,7 @@ export default function ListElement({ drink }: DrinkElement) {
     }
   };
 
+  // Link to correct drink page
   const drinkLink: string = "/drink/" + drink.idDrink;
   return (
     <div className="drinkElement">

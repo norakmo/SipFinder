@@ -12,6 +12,8 @@ export default function CarouselItem({ drinkId }: CarouselDrink) {
   const queryClient = useQueryClient();
   const [drinkData, setDrinkData] = useState<DrinkAPI>();
 
+  /* Gets data on all drinks from the API. EnsureQueryData first checks the query cache and only sends
+  a request to the API if necessary. The drinks are saved in "allDrinks" */
   async function getData() {
     await queryClient
       .ensureQueryData({
@@ -40,6 +42,7 @@ export default function CarouselItem({ drinkId }: CarouselDrink) {
     getData();
   }
 
+  // Connects the ingredients to the correct measurement
   function formatIngredients(drink: DrinkAPI) {
     const transformedDrink = transformDrink(drink);
     const container = document.getElementById("ingredients-and-measures");
