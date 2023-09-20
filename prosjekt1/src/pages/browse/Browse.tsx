@@ -185,12 +185,12 @@ function Browse() {
   return (
     <div className="container">
       <div className="filter">
-        <label> Filters:</label>
+        <label> <h3>Filters</h3></label>
         <div>
           <label>
             <input
               type="checkbox"
-              onClick={handleClickAlcoholic}
+              onChange={handleClickAlcoholic}
               checked={alcoholic}
               id="alcoholic"
             />
@@ -201,7 +201,7 @@ function Browse() {
           <label>
             <input
               type="checkbox"
-              onClick={handleClickNonAlcoholic}
+              onChange={handleClickNonAlcoholic}
               checked={nonAlcoholic}
               id="nonAlcoholic"
             />
@@ -212,11 +212,11 @@ function Browse() {
           <label>
             <input
               type="checkbox"
-              onClick={handleClickFavourite}
+              onChange={handleClickFavourite}
               checked={favorite}
               id="favourite"
             />
-            Favourite
+            Favorite
           </label>
         </div>
         <button type="submit" className="filterButton" onClick={handleFilter}>
@@ -235,9 +235,17 @@ function Browse() {
               </>
             ) : (
               <>
+                {filteredDrinks.length==0 ? (
+                <> 
+                  <div> No drinks match the search </div>
+                </>
+              ):(
+                <> 
                 {filteredDrinks.map((drink: SimpleDrinkAPI) => {
                   return <ListElement drink={drink} key={drink.idDrink} />;
                 })}
+                </>
+              )}
               </>
             )}
           </>

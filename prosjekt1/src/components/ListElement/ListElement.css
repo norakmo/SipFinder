@@ -1,5 +1,4 @@
 .drinkElement {
-  border: 3px black;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -15,15 +14,30 @@
 
 .picture {
   width: 7vw;
-  height: 14vh;
+  height: 7vw;
   border-radius: 5%;
 }
 
 .title {
   flex: 4;
   padding-left: 3%;
+  font-size: 25px;
 }
 
 h2 {
   font-weight: 500;
+}
+
+@media only screen and (max-width: 800px) {
+  .picture {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 5%;
+  }
+
+  .title {
+    flex: 4;
+    padding-left: 3%;
+    font-size: 2.5vw;
+  }
 }
