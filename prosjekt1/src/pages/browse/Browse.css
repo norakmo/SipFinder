@@ -15,9 +15,10 @@ body {
   height: 100%;
 }
 
+/*Filter CSS*/
 .filter {
-  background-color: #f8c2b4;
-  -webkit-text-fill-color: white;
+  background-color: var(--accent-color);
+  -webkit-text-fill-color: var(--bg-color);
   text-align: left;
   position: relative;
   margin: 0;
@@ -26,21 +27,43 @@ body {
 }
 
 .input {
-  background-color: white;
+  background-color: var(--bg-color);
+}
+
+h3 {
+  margin: 2%;
+}
+
+.filterButton,
+.clearButton {
+  -webkit-text-fill-color: black;
+  margin-right: 10%;
+  margin-top: 10%;
+  height: 6vh;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5vh;
+  border: none;
+  border-radius: 3%;
 }
 
 .filterButton {
-  background-color: white;
-  -webkit-text-fill-color: black;
-  margin-right: 10%;
+  background-color: var(--secondary-color);
 }
 
-.filterButton:hover {
-  background-color: gray;
+.clearButton {
+  background-color: var(--bg-color);
 }
 
+.filterButton:hover,
+.clearButton:hover {
+  background-color: var(--primary-color);
+  border: 0.2em solid var(--secondary-color);
+}
+
+/*Contents CSS*/
 .contents {
-  background-color: green;
+  background-color: var(--bg-color);
   position: relative;
   flex: 4;
   flex-grow: 4;
@@ -49,14 +72,58 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.favorite,
+.notfavorite {
+  background-color: var(--accent-color);
+  margin-right: 2%;
+  border-radius: 100%;
+  width: 4vw;
+  height: 4vw;
+  text-align: center;
+  font-size: 3vw;
+  border: none;
 }
 
 .favorite {
-  background-color: red;
   -webkit-text-fill-color: black;
-  margin: 3%;
 }
 
-.favorite:hover {
-  background-color: gray;
+.notfavorite {
+  -webkit-text-fill-color: var(--accent-color);
+}
+
+.notfavorite:hover {
+  background-color: var(--accent-color);
+  -webkit-text-fill-color: var(--bg-color);
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .filter {
+    text-align: center;
+    max-height: 35vh;
+  }
+
+  .filterButton,
+  .clearButton {
+    margin-right: 10%;
+    margin-top: 2%;
+    height: 4vh;
+    font-size: auto;
+  }
+
+  .favorite,
+  .notfavorite {
+    width: 6vw;
+    height: 6vw;
+    text-align: center;
+    font-size: 5vw;
+  }
 }
