@@ -34,7 +34,7 @@ export default function Home() {
       setCurrentItem(0); // go back to first slide
     } else {
       // move to next slide
-      setCurrentItem(currentItem + 1);
+      setCurrentItem((prevItem) => prevItem + 1);
     }
   };
 
@@ -44,7 +44,7 @@ export default function Home() {
       setCurrentItem(numberOfItems - 1); // move to the last slide
     } else {
       // move back one
-      setCurrentItem(currentItem - 1);
+      setCurrentItem((prevItem) => prevItem - 1);
     }
   };
 

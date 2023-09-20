@@ -1,7 +1,19 @@
+.carousel-item {
+    width: 60%;
+    margin: auto;
+    max-height: 100%;
+}
+
+#ingredients-and-measures {
+    text-align: center;
+    font-size: 0.9em;
+}
+
 .carousel-item img {
   width: 40vh;
   margin: auto;
-  max-width: 100%;
+  display: block;
+  max-width: 50%;
   height: auto;
   border: 0.2em solid black;
 }
