@@ -29,7 +29,7 @@ export const restHandlers = [
   //handler for snapshot test
   rest.get(
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail",
-    (req, res, ctx) => {
+    (_req, res, ctx) => {
       //const category = req.url.searchParams.get("c=Cocktail");
       return res(ctx.json(posts));
     }
