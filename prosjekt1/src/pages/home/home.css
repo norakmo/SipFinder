@@ -1,19 +1,17 @@
 .carousel {
   width: 80vh;
-  height: 70vh;
+  height: 80%;
   margin: 1em auto;
   position: relative;
-  /*border: 0.1em solid black;*/
+  border: 0.1em solid var(--secondary-color);
   background-color: var(--accent-color);
   padding-top: 1%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
 
 .carousel-actions {
-  display: flex;
   width: 10%;
   position: absolute;
 }
@@ -34,11 +32,11 @@
 }
 
 #button-prev-container {
-  left: 1%;
+  left: 2%;
 }
 
 #button-next-container {
-  right: 10%;
+  right: 5%;
 }
 
 @media only screen and (max-width: 800px) {
