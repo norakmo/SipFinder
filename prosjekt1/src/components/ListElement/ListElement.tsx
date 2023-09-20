@@ -40,7 +40,7 @@ export default function ListElement({ drink }: DrinkElement) {
 
       <div className="favorite">
         <button type="submit" className={color} onClick={handleFavoriteClick}>
-          ♥
+          &#x2661;
         </button>
       </div>
     </div>

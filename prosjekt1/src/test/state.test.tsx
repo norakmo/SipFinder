@@ -25,7 +25,7 @@ describe("Check LocalState", () => {
         <ListElement drink={drink} />
       </BrowserRouter>
     );
-    const favoriteButton = screen.getByRole("button", { name: "♥" });
+    const favoriteButton = screen.getByRole("button", { name: "♡" });
     expect(favoriteButton.classList.contains("favorite")).toBe(true);
   });
 
@@ -43,7 +43,7 @@ describe("Check LocalState", () => {
         <ListElement drink={drink} />
       </BrowserRouter>
     );
-    const favoriteButton = screen.getByRole("button", { name: "♥" });
+    const favoriteButton = screen.getByRole("button", { name: "♡" });
     expect(favoriteButton.classList.contains("notfavorite")).toBe(true);
   });
 
@@ -59,7 +59,7 @@ describe("Check LocalState", () => {
         <ListElement drink={drink} />
       </BrowserRouter>
     );
-    const favoriteButton = screen.getByRole("button", { name: "♥" });
+    const favoriteButton = screen.getByRole("button", { name: "♡" });
 
     fireEvent.click(favoriteButton);
     expect(localStorage.getItem(drink.idDrink)).toBe("favorite");
