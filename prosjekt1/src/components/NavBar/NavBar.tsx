@@ -6,7 +6,6 @@ export default function NavBar() {
   return (
     <nav className="NavBar">
       <div className="LogoNavBar">
-        {/* Legg inn bilde */}
         <Link to="/" className="HomeLinkLogo">
           <h1>SipFinder</h1>
         </Link>
