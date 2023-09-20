@@ -56,11 +56,6 @@ export interface CarouselDrink {
   drinkId: string;
 }
 
-// //The pro
-// export interface Carousel {
-//   drinkIds: string[];
-// }
-
 //Simplified interface
 export interface Drink {
   id: string;
