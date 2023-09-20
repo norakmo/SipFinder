@@ -1,47 +1,36 @@
 nav {
-    background-color: var(--primary-color);
-    color: var(--text-color1);
-    padding-top: 1%;
-    top: 0;
-    position: sticky;
-    width: 100%;
-    text-align: center;
-    z-index: 999;
+  background-color: var(--primary-color);
+  color: var(--text-color1);
+  padding-top: 1%;
+  top: 0;
+  position: sticky;
+  width: 100%;
+  text-align: center;
+  z-index: 999;
 }
 
 .NavBarLinks {
-    background-color: var(--secondary-color);
-    /*gammel farge: #E5989B*/
+  background-color: var(--secondary-color);
 }
 
 .HomeLinkLogo {
-    color: black;
-    font-size: 10px;
+  color: black;
+  font-size: 10px;
 }
 
-.HomeLink {
-    padding-right: 1%;
-    padding-left: 1%;
-    color: var(--text-color1);
-}
-
+.HomeLink,
 .BrowseLink {
-    padding-right: 1%;
-    padding-left: 1%;
-    color: var(--text-color1);
+  padding-right: 1%;
+  padding-left: 1%;
+  color: var(--text-color1);
 }
 
-.HomeLink:hover {
-    color: var(--text-color1);
-    background-color: var(--accent-color);
-}
-
+.HomeLink:hover,
 .BrowseLink:hover {
-    color: var(--text-color1);
-    background-color: var(--accent-color);
+  color: var(--text-color1);
+  background-color: var(--accent-color);
 }
 
 .HomeLinkLogo:hover {
-    color: var(--text-color1)
+  color: var(--text-color1);
 }
-

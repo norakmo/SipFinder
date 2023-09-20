@@ -93,7 +93,7 @@ h3 {
 }
 
 .notfavorite {
-  -webkit-text-fill-color: var(--accent-color);
+  -webkit-text-fill-color: var(--secondary-color);
 }
 
 .notfavorite:hover {
