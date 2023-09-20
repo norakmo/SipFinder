@@ -33,20 +33,21 @@ export const restHandlers = [
     }
   ),
   rest.get(
-    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=2",
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?",
     (req, res, ctx) => {
-      //const category = req.url.searchParams.get("c=Cocktail");
-      return res(ctx.json(posts2));
+      const category = req.url.searchParams.get("i");
+      if (category === "1") return res(ctx.json(posts));
+      if (category === "2") return res(ctx.json(posts2));
     }
   ),
 
-  rest.get(
-    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=1",
-    (req, res, ctx) => {
-      //const category = req.url.searchParams.get("c=Cocktail");
-      return res(ctx.json(posts));
-    }
-  ),
+  // rest.get(
+  //   "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=1",
+  //   (req, res, ctx) => {
+  //     const category = req.url.searchParams.get("c=Cocktail");
+  //     return res(ctx.json(posts));
+  //   }
+  // ),
 ];
 
 const server = setupServer(...restHandlers);

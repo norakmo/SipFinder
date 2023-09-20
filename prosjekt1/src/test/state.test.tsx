@@ -16,7 +16,7 @@ describe("Check LocalState", () => {
 
     localStorage.setItem(drink.idDrink, "favorite");
     render(<ListElement drink={drink} />);
-    const favoriteButton = screen.getByRole("button", { name: "favorite" });
+    const favoriteButton = screen.getByRole("button", { name: "♥" });
     expect(favoriteButton.classList.contains("favorite")).toBe(true);
   });
 
@@ -29,8 +29,8 @@ describe("Check LocalState", () => {
 
     localStorage.setItem(drink.idDrink, "not-favorite");
     render(<ListElement drink={drink} />);
-    const favoriteButton = screen.getByRole("button", { name: "favorite" });
-    expect(favoriteButton.classList.contains("filterButton")).toBe(true);
+    const favoriteButton = screen.getByRole("button", { name: "♥" });
+    expect(favoriteButton.classList.contains("notfavorite")).toBe(true);
   });
 
   it("Toggles the state in localStorage when the favorite button is clicked", () => {
@@ -41,12 +41,14 @@ describe("Check LocalState", () => {
     };
 
     render(<ListElement drink={drink} />);
-    const favoriteButton = screen.getByRole("button", { name: "favorite" });
+
+    const favoriteButton = screen.getByRole("button", { name: "♥" });
     fireEvent.click(favoriteButton);
     expect(localStorage.getItem(drink.idDrink)).toBe("favorite");
     expect(favoriteButton.classList.contains("favorite")).toBe(true);
+
     fireEvent.click(favoriteButton);
     expect(localStorage.getItem(drink.idDrink)).toBe("not-favorite");
-    expect(favoriteButton.classList.contains("filterButton")).toBe(true);
+    expect(favoriteButton.classList.contains("notfavorite")).toBe(true);
   });
 });

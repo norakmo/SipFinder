@@ -9,14 +9,10 @@ describe("ListElement", () => {
       strDrink: "Moscow Mule",
       strDrinkThumb: "test.jpg",
     };
-    const { getByText } = render(<ListElement drink={fakeDrink} />);
-
-    const favoriteButton = getByText("favorite");
-
-    expect(favoriteButton.classList.contains("filterButton")).toBe(true);
-
-    fireEvent.click(favoriteButton);
-
-    expect(favoriteButton.classList.contains("favorite")).toBe(true);
+    const { container } = render(<ListElement drink={fakeDrink} />);
+    const favoriteButton = container.querySelector(".favorite button");
+    expect(favoriteButton?.classList.contains("notfavorite")).toBe(true);
+    favoriteButton && fireEvent.click(favoriteButton);
+    expect(favoriteButton?.classList.contains("favorite")).toBe(true);
   });
 });
