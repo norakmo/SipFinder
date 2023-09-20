@@ -14,7 +14,6 @@ export default function ListElement({ drink }: DrinkElement) {
 
   const handleFavoriteClick = () => {
     const state: string | null = localStorage.getItem(drink.idDrink);
-    console.log(state);
     if (state == "favorite") {
       localStorage.setItem(drink.idDrink, "not-favorite");
       setColor("notfavorite");
