@@ -40,3 +40,26 @@
 #button-next-container {
   right: 10%;
 }
+
+@media only screen and (max-width: 800px) {
+  .carousel {
+    width: 100vw;
+    height: 100%;
+    margin: 0;
+    align-items: baseline;
+  }
+
+  .carousel-actions button {
+    width: 20vw;
+    height: 20vw;
+    font-size: 4vw;
+  }
+
+  #button-prev-container {
+    left: 2%;
+  }
+
+  #button-next-container {
+    right: 5%;
+  }
+}

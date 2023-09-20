@@ -7,7 +7,17 @@
 }
 
 .drinkname {
-  font-size: 1.1em;
+  font-size: 2vw;
   font-family: "Oswald", sans-serif;
   text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .drinkname {
+    font-size: 6vw;
+  }
+
+  .carousel-item img {
+    width: 30vh;
+  }
 }
