@@ -2,7 +2,7 @@
 
 ## Sipfinder
 
-Sipfinder is a website for finding cocktail recepies. The site consists of two pages: the **browse page** and the **home page**. On the **home page**, the drinks are presented in a carousel list where the user can go back and forth in a slide show of all the recepies. The **browse page** presents the drinks in a list, and the user can apply filters (alcoholic, non-alcoholic and favorites) to control which drinks are displayed. The filtering choices are remembered when the page is reloaded. The user can also save drinks as favorites by clicking a button, and the favorites will be remembered even when the browser is closed and reopened.
+Sipfinder is a website for finding cocktail recipes. The site consists of threepages: the **browse page**, the **home page** and the **drink page**. On the **home page**, the drinks are presented in a carousel list where the user can go back and forth in a slide show of all the recepies. The **browse page** presents the drinks in a list, and the user can apply filters (alcoholic, non-alcoholic and favorites) to control which drinks are displayed. The filtering choices are remembered when the page is reloaded. The user can also save drinks as favorites by clicking a button, and the favorites will be remembered even when the browser is closed and reopened. By clicking on a drink on the browse page, the user is sent to the **drink page** with the full recipe.
 
 ## Running the project
 
@@ -15,7 +15,7 @@ Sipfinder is a website for finding cocktail recepies. The site consists of two p
 
 - The **component** folder contains code and styling for the components _CarouselItem_, _ListElement_ and _NavBar_.
 
-- **Pages** contains code and styling for the _home page_ and _browse page_.
+- **Pages** contains code and styling for the _home page_, _drink page_ and _browse page_.
 
 - The **utils** folder contains code that is used several times in the projects. _ApiRequests_ holds requests that are used to fetch data from the REST API. _Types_ contains descriptions of the different interfaces that are used in the project.
 
