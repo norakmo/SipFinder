@@ -60,57 +60,58 @@ function Browse() {
   /* Puts the drinks that match the ckecked attributes in the "filteredDrinks"-list */
   async function applyFilter() {
     if (allDrinks === undefined || nonAlcDrinks === undefined) {
-      throw console.error("drinks not found");
-    }
-    //no filters
-    if (!alcoholic && !nonAlcoholic && !favorite) {
-      setFilter(false);
-    }
-    //both alcoholic and non-alcoholic -> no results
-    if (alcoholic && nonAlcoholic) {
-      setFilteredDrinks([]);
-    }
-    //alcoholic drinks
-    if (alcoholic && !nonAlcoholic && !favorite) {
-      setFilteredDrinks(
-        allDrinks.filter((drink) => !nonAlcDrinks.includes(drink.idDrink))
-      );
-    }
-    //non-alcoholic drinks
-    if (!alcoholic && nonAlcoholic && !favorite) {
-      setFilteredDrinks(
-        allDrinks.filter((drink) => nonAlcDrinks.includes(drink.idDrink))
-      );
-    }
-    //favorite drinks
-    if (!alcoholic && !nonAlcoholic && favorite) {
-      setFilteredDrinks(getFavorites());
-    }
-    //favorite alcoholic drinks
-    if (alcoholic && !nonAlcoholic && favorite) {
-      setFilteredDrinks(
-        allDrinks.filter(
-          (drink) =>
-            !nonAlcDrinks.includes(drink.idDrink) &&
-            getFavorites().includes(drink)
-        )
-      );
-    }
-    //favorite non-alcoholic drinks
-    if (!alcoholic && nonAlcoholic && favorite) {
-      setFilteredDrinks(
-        allDrinks.filter(
-          (drink) =>
-            nonAlcDrinks.includes(drink.idDrink) &&
-            getFavorites().includes(drink)
-        )
-      );
-    }
+      //Waitfor drinks to load, error will be thrown if data can't be found
+    } else {
+      //no filters
+      if (!alcoholic && !nonAlcoholic && !favorite) {
+        setFilter(false);
+      }
+      //both alcoholic and non-alcoholic -> no results
+      if (alcoholic && nonAlcoholic) {
+        setFilteredDrinks([]);
+      }
+      //alcoholic drinks
+      if (alcoholic && !nonAlcoholic && !favorite) {
+        setFilteredDrinks(
+          allDrinks.filter((drink) => !nonAlcDrinks.includes(drink.idDrink))
+        );
+      }
+      //non-alcoholic drinks
+      if (!alcoholic && nonAlcoholic && !favorite) {
+        setFilteredDrinks(
+          allDrinks.filter((drink) => nonAlcDrinks.includes(drink.idDrink))
+        );
+      }
+      //favorite drinks
+      if (!alcoholic && !nonAlcoholic && favorite) {
+        setFilteredDrinks(getFavorites());
+      }
+      //favorite alcoholic drinks
+      if (alcoholic && !nonAlcoholic && favorite) {
+        setFilteredDrinks(
+          allDrinks.filter(
+            (drink) =>
+              !nonAlcDrinks.includes(drink.idDrink) &&
+              getFavorites().includes(drink)
+          )
+        );
+      }
+      //favorite non-alcoholic drinks
+      if (!alcoholic && nonAlcoholic && favorite) {
+        setFilteredDrinks(
+          allDrinks.filter(
+            (drink) =>
+              nonAlcDrinks.includes(drink.idDrink) &&
+              getFavorites().includes(drink)
+          )
+        );
+      }
 
-    //update sessionStorage
-    sessionStorage.setItem("alcoholic", alcoholic.toString());
-    sessionStorage.setItem("nonAlcoholic", nonAlcoholic.toString());
-    sessionStorage.setItem("favourite", favorite.toString());
+      //update sessionStorage
+      sessionStorage.setItem("alcoholic", alcoholic.toString());
+      sessionStorage.setItem("nonAlcoholic", nonAlcoholic.toString());
+      sessionStorage.setItem("favourite", favorite.toString());
+    }
   }
 
   //Sets the alcoholic-state to the opposite of the previous value
@@ -185,7 +186,10 @@ function Browse() {
   return (
     <div className="container">
       <div className="filter">
-        <label> <h3>Filters</h3></label>
+        <label>
+          {" "}
+          <h3>Filters</h3>
+        </label>
         <div>
           <label>
             <input
@@ -235,17 +239,17 @@ function Browse() {
               </>
             ) : (
               <>
-                {filteredDrinks.length==0 ? (
-                <> 
-                  <div> No drinks match the search </div>
-                </>
-              ):(
-                <> 
-                {filteredDrinks.map((drink: SimpleDrinkAPI) => {
-                  return <ListElement drink={drink} key={drink.idDrink} />;
-                })}
-                </>
-              )}
+                {filteredDrinks.length == 0 ? (
+                  <>
+                    <div> No drinks match the search </div>
+                  </>
+                ) : (
+                  <>
+                    {filteredDrinks.map((drink: SimpleDrinkAPI) => {
+                      return <ListElement drink={drink} key={drink.idDrink} />;
+                    })}
+                  </>
+                )}
               </>
             )}
           </>
