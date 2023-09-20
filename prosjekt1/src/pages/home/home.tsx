@@ -10,6 +10,8 @@ export default function Home() {
   const [currentItem, setCurrentItem] = useState<number>(0); // index of current slide
   const numberOfItems = 100;
 
+  /* Gets the ids of all the drinks from the API. EnsureQueryData first checks the query cache and only sends
+  a request to the API if necessary. The drinkIds are saved in "allIds" */
   async function getData() {
     await queryClient
       .ensureQueryData({
