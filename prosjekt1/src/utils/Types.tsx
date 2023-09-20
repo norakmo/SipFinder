@@ -1,4 +1,4 @@
-//The properties given in the db
+//The properties given in the db when getting detailed information on one drink
 export interface DrinkAPI {
   idDrink: string;
   strDrink: string;
@@ -39,23 +39,27 @@ export interface DrinkAPI {
   strMeasure15: string;
 }
 
+// The properties given in the db when getting data about a list of drinks
 export interface SimpleDrinkAPI {
   idDrink: string;
   strDrink: string;
   strDrinkThumb: string;
 }
 
+// The props for ListElement
 export interface DrinkElement {
   drink: SimpleDrinkAPI;
 }
 
+// The props for CarouselItem
 export interface CarouselDrink {
   drinkId: string;
 }
 
-export interface Carousel {
-  drinkIds: string[];
-}
+// //The pro
+// export interface Carousel {
+//   drinkIds: string[];
+// }
 
 //Simplified interface
 export interface Drink {
@@ -68,10 +72,12 @@ export interface Drink {
   measures: string[];
 }
 
+// Interface for the response given by the REST API when requesting data on a list of drinks
 export interface ApiResponse {
   drinks: SimpleDrinkAPI[];
 }
 
+// Interface for the response given by the REST API when requesting data on a single drink
 export interface ApiResponseSingleDrink {
   drinks: DrinkAPI[];
 }
