@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { expect, it } from "vitest";
 import ListElement from "../components/ListElement/ListElement";
+import { BrowserRouter } from "react-router-dom";
 
 //file for testing local state
 
@@ -19,7 +20,11 @@ describe("Check LocalState", () => {
     };
     //set local storage to favorite
     localStorage.setItem(drink.idDrink, "favorite");
-    render(<ListElement drink={drink} />);
+    render(
+      <BrowserRouter basename="/">
+        <ListElement drink={drink} />
+      </BrowserRouter>
+    );
     const favoriteButton = screen.getByRole("button", { name: "♥" });
     expect(favoriteButton.classList.contains("favorite")).toBe(true);
   });
@@ -33,7 +38,11 @@ describe("Check LocalState", () => {
     };
     //set local storage to  not-favorite
     localStorage.setItem(drink.idDrink, "not-favorite");
-    render(<ListElement drink={drink} />);
+    render(
+      <BrowserRouter basename="/">
+        <ListElement drink={drink} />
+      </BrowserRouter>
+    );
     const favoriteButton = screen.getByRole("button", { name: "♥" });
     expect(favoriteButton.classList.contains("notfavorite")).toBe(true);
   });
@@ -45,7 +54,11 @@ describe("Check LocalState", () => {
       strDrinkThumb: "pinacolada.jpg",
     };
     //checks that local storage is like expected
-    render(<ListElement drink={drink} />);
+    render(
+      <BrowserRouter basename="/">
+        <ListElement drink={drink} />
+      </BrowserRouter>
+    );
     const favoriteButton = screen.getByRole("button", { name: "♥" });
 
     fireEvent.click(favoriteButton);
