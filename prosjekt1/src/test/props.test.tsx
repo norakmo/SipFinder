@@ -1,8 +1,9 @@
 import { render, waitFor } from "@testing-library/react";
 import CarouselItem from "../components/CarouselItem/CarouselItem";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { expect, vi } from "vitest";
+import { expect } from "vitest";
 
+//Props test for carousel item
 test("Drink title", async () => {
   const queryClient = new QueryClient();
   const drink = (
