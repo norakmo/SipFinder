@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { DrinkElement } from "../../utils/Types";
 import "./ListElement.css";
+import { Link } from "react-router-dom";
 
 export default function ListElement({ drink }: DrinkElement) {
   const [color, setColor] = useState<string>();
@@ -24,12 +25,16 @@ export default function ListElement({ drink }: DrinkElement) {
     }
   };
 
+  const drinkLink: string = "/drink/" + drink.idDrink;
   return (
     <div className="drinkElement">
       <img src={drink.strDrinkThumb} className="picture" />
-      <div className="title">
-        <h2>{drink.strDrink}</h2>
-      </div>
+      <Link to={drinkLink} className="title">
+        <div>
+          <h2>{drink.strDrink}</h2>
+        </div>
+      </Link>
+
       <div className="favorite">
         <button type="submit" className={color} onClick={handleFavoriteClick}>
           favorite
