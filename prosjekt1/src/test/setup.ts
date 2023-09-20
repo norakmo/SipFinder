@@ -2,8 +2,9 @@ import { afterAll, afterEach, beforeAll } from "vitest";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
 
-//https://vitest.dev/guide/mocking.html#requests
+//file for setting up mock server for testing
 
+//drink items for testing
 const posts = {
   drinks: [
     {
@@ -25,6 +26,7 @@ const posts2 = {
 };
 
 export const restHandlers = [
+  //handler for snapshot test
   rest.get(
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail",
     (req, res, ctx) => {
@@ -32,6 +34,7 @@ export const restHandlers = [
       return res(ctx.json(posts));
     }
   ),
+  //handler for component testing
   rest.get(
     "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?",
     (req, res, ctx) => {
@@ -40,14 +43,6 @@ export const restHandlers = [
       if (category === "2") return res(ctx.json(posts2));
     }
   ),
-
-  // rest.get(
-  //   "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=1",
-  //   (req, res, ctx) => {
-  //     const category = req.url.searchParams.get("c=Cocktail");
-  //     return res(ctx.json(posts));
-  //   }
-  // ),
 ];
 
 const server = setupServer(...restHandlers);

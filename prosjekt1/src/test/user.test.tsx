@@ -2,6 +2,7 @@ import { render, fireEvent } from "@testing-library/react";
 import { expect, it } from "vitest";
 import ListElement from "../components/ListElement/ListElement";
 
+//test for checking that the favorite button heart changes color when clicked
 describe("ListElement", () => {
   it("changes color when the 'favorite' button is clicked", () => {
     const fakeDrink = {

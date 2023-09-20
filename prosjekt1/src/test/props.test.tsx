@@ -3,7 +3,7 @@ import CarouselItem from "../components/CarouselItem/CarouselItem";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { expect } from "vitest";
 
-//Props test for carousel item
+//Props test for carousel items margarita and martini made in setup.ts
 test("Drink 1", async () => {
   const queryClient = new QueryClient();
   const drink = (

@@ -13,7 +13,7 @@ We have set up a mock server and made a few drink items just for testing.
 
 - We have a test for checking that the prop 'CarouselItem' contains the mock items we ask for.
 
-- We have a user interactive test that checks if the button for favouriting an item acually changes css class when clicked, so that it changes color.
+- We have a user interactive test that checks if the button for favouriting an item acually changes css class when clicked, so that the heart changes color.
 - Lastly we have a state test that also uses the css class of the favourite button to check if local storage works as expected.
 
 ### Further development
