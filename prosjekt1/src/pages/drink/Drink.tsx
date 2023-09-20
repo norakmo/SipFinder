@@ -5,7 +5,7 @@ import "./Drink.css";
 export default function Drink() {
   const { drinkId } = useParams();
   return (
-    <div id="contain">
+    <div id="drinkCont">
       {drinkId === undefined ? (
         <> Id not valid</>
       ) : (
