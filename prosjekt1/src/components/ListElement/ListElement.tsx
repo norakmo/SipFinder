@@ -8,16 +8,15 @@ export default function ListElement({ drink }: DrinkElement) {
     if (localStorage.getItem(drink.idDrink) == "favorite") {
       setColor("favorite");
     } else {
-      setColor("filterButton");
+      setColor("notfavorite");
     }
   }, []);
 
   const handleFavoriteClick = () => {
     const state: string | null = localStorage.getItem(drink.idDrink);
-    console.log(state);
     if (state == "favorite") {
       localStorage.setItem(drink.idDrink, "not-favorite");
-      setColor("filterButton");
+      setColor("notfavorite");
     } else {
       localStorage.setItem(drink.idDrink, "favorite");
       setColor("favorite");
@@ -32,7 +31,7 @@ export default function ListElement({ drink }: DrinkElement) {
       </div>
       <div className="favorite">
         <button type="submit" className={color} onClick={handleFavoriteClick}>
-          favorite
+          ♥
         </button>
       </div>
     </div>
