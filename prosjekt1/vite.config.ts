@@ -1,8 +1,19 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+///<reference types="vite/client" />
+///<reference types="vitest" />
 
-// https://vitejs.dev/config/
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+
 export default defineConfig({
   plugins: [react()],
-  base: '/project1',
-})
+  base: "/project1",
+  server: {
+    open: true,
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "src/test/setup.ts",
+    css: true,
+  },
+});

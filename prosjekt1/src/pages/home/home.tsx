@@ -20,6 +20,7 @@ export default function Home() {
       })
       .then((res) => {
         setAllIds(res.drinks.map((drink) => drink.idDrink));
+        console.log(res.drinks);
       });
   }
 
