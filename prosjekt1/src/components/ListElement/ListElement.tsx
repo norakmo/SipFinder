@@ -15,7 +15,7 @@ export default function ListElement({ drink }: DrinkElement) {
     }
   }, []);
 
-  // Makes a drink a favorite or removes it from favorites
+  //Makes a drink a favorite or removes it from favorites
   const handleFavoriteClick = () => {
     const state: string | null = localStorage.getItem(drink.idDrink);
     if (state == "favorite") {
