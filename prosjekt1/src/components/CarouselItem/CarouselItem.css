@@ -4,24 +4,24 @@
   max-height: 100%;
 }
 
-#ingredients-and-measures {
-  text-align: center;
-  font-size: 0.9em;
-}
-
 .carousel-item img {
-  width: 50vw;
-  max-width: 70%;
   margin: auto;
   display: block;
-  height: auto;
+  width: 40vh;
   border: 0.1em solid black;
 }
 
+.carousel-item p {
+  font-size: 2vh;
+  text-align: center;
+  line-height: 1.5;
+}
+
 .drinkname {
-  font-size: 2vw;
+  font-size: 5vh;
   font-family: "Oswald", sans-serif;
   text-align: center;
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 800px) {
@@ -32,14 +32,12 @@
     max-height: 100%;
   }
 
+  .carousel-item img {
+    width: 25vh;
+  }
+
   .drinkname {
     font-size: 6vw;
     padding-top: 0%;
-    margin-top: 0%;
-  }
-
-  .carousel-item img {
-    width: 30vw;
-    max-width: none;
   }
 }

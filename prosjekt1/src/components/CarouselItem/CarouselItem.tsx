@@ -71,9 +71,9 @@ export default function CarouselItem({ drinkId }: CarouselDrink) {
         </>
       ) : (
         <>
-          <p className="drinkname">{drinkData.strDrink}</p>
+          <h1 className="drinkname">{drinkData.strDrink}</h1>
           <img src={drinkData.strDrinkThumb} alt="drink" />
-          <div id="ingredients-and-measures"></div>
+          <p id="ingredients-and-measures"></p>
           <p>
             <b>Instructions: </b>
             {drinkData.strInstructions}
