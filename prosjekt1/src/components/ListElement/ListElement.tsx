@@ -13,7 +13,7 @@ export default function ListElement({ drink }: DrinkElement) {
     } else {
       setColor("notfavorite");
     }
-  }, []);
+  }, [drink.idDrink]);
 
   //Makes a drink a favorite or removes it from favorites
   const handleFavoriteClick = () => {
