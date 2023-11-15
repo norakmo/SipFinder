@@ -4,7 +4,7 @@ import "./ListElement.css";
 import { Link } from "react-router-dom";
 
 export default function ListElement({ drink }: DrinkElement) {
-  const [color, setColor] = useState<string>();
+  const [color, setColor] = useState<string>("notfavorite");
 
   // Checks if the drink is saved as a favorite in localStorage
   useEffect(() => {
@@ -38,11 +38,14 @@ export default function ListElement({ drink }: DrinkElement) {
         </div>
       </Link>
 
-      <div className="favorite">
-        <button type="submit" className={color} onClick={handleFavoriteClick}>
-          &#x2661;
-        </button>
-      </div>
+      <button
+        className="favorite-button"
+        type="submit"
+        id={color}
+        onClick={handleFavoriteClick}
+      >
+        &#x2661;
+      </button>
     </div>
   );
 }

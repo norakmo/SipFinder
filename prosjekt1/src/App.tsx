@@ -14,10 +14,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Router basename="project1">
           <>
-            <div className="NavigationBar">
-              <NavBar />
-            </div>
-            <div className="space"></div>
+            <NavBar />
             <Routes>
               <Route path={"/"} element={<Home />} />
               <Route path={"/browse"} element={<Browse />} />
