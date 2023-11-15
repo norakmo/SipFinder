@@ -169,6 +169,7 @@ function Browse() {
       sessionStorage.setItem("nonAlcoholic", "false");
     if (sessionStorage.getItem("favourite") == null)
       sessionStorage.setItem("favourite", "false");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Applies filtes if saved in sessionStorage
@@ -176,11 +177,14 @@ function Browse() {
     if (sessionStorage.getItem("filter") == "true") {
       handleFilter();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nonAlcDrinks, allDrinks]);
 
   //Applies filters if filter-state is set to true
+
   useEffect(() => {
     if (filter) applyFilter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   return (
