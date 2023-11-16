@@ -20,13 +20,13 @@ describe("ListElement", () => {
       </MemoryRouter>
     );
 
-    const favoriteButton = container.querySelector(".favorite button");
-    expect(favoriteButton?.classList.contains("notfavorite")).toBe(true);
+    const favoriteButton = container.querySelector(".favorite-button");
+    expect(favoriteButton?.getAttribute("id")).toBe("notfavorite");
 
     // Fire a click event on the button
     favoriteButton && fireEvent.click(favoriteButton);
 
     // Use an asynchronous assertion to check the updated class
-    expect(favoriteButton?.classList.contains("favorite")).toBe(true);
+    await expect(favoriteButton?.getAttribute("id")).toBe("favorite");
   });
 });

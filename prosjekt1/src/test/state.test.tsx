@@ -26,7 +26,7 @@ describe("Check LocalState", () => {
       </BrowserRouter>
     );
     const favoriteButton = screen.getByRole("button", { name: "♡" });
-    expect(favoriteButton.classList.contains("favorite")).toBe(true);
+    expect(favoriteButton?.getAttribute("id")).toBe("favorite");
   });
 
   //changes color of the heart is clicked again (unfavorited)
@@ -44,7 +44,7 @@ describe("Check LocalState", () => {
       </BrowserRouter>
     );
     const favoriteButton = screen.getByRole("button", { name: "♡" });
-    expect(favoriteButton.classList.contains("notfavorite")).toBe(true);
+    expect(favoriteButton?.getAttribute("id")).toBe("notfavorite");
   });
 
   it("Toggles the state in localStorage when the favorite button is clicked", () => {
@@ -63,10 +63,10 @@ describe("Check LocalState", () => {
 
     fireEvent.click(favoriteButton);
     expect(localStorage.getItem(drink.idDrink)).toBe("favorite");
-    expect(favoriteButton.classList.contains("favorite")).toBe(true);
+    expect(favoriteButton?.getAttribute("id")).toBe("favorite");
 
     fireEvent.click(favoriteButton);
     expect(localStorage.getItem(drink.idDrink)).toBe("not-favorite");
-    expect(favoriteButton.classList.contains("notfavorite")).toBe(true);
+    expect(favoriteButton?.getAttribute("id")).toBe("notfavorite");
   });
 });
