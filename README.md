@@ -88,4 +88,8 @@ TODO
 
 ### ESLint
 
-TODO
+We have used ESLint to help identify and fix problems in the code. ESLint is a static code analysis tool that enforces coding standards and best practices, ensuring a consistent and maintanable codebase.
+
+Run linting with the command `npm run lint`.
+
+We have identified issues by using this tool during development, and tried to fix the issues. There were some issues that we weren't able to fix without making substantial changes to the code, so we chose to ignore these warnings. They were in the browse page code (Browse.tsx), and related to the filtering functionality. We acknowledge that this is not the best way to fix the issue, but because of time constraints we weren't able to solve the issue in a better way.
