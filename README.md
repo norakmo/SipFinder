@@ -1,13 +1,30 @@
 # Prosjekt 1
 
+# Table of Contents
+
+1. [Sipfinder](#sipfinder)
+2. [Running the project](#running-the-project)
+3. [Project structure](#project-structure)
+4. [REST API](#rest-api)
+5. [Responsive design](#responsive-design)
+   - [Technologies used](#technologies-used)
+   - [Testing Responsiveness](#testing-responsiveness)
+6. [Code quality](#code-quality)
+   - [Testing](#testing)
+   - [Prettier](#prettier)
+   - [ESLint](#eslint)
+
 ## Sipfinder
 
 Sipfinder is a website for finding cocktail recipes. The site consists of three pages: the **browse page**, the **home page** and the **drink page**. On the **home page**, the drinks are presented in a carousel list where the user can go back and forth in a slide show of all the recepies. The **browse page** presents the drinks in a list, and the user can apply filters (alcoholic, non-alcoholic and favorites) to control which drinks are displayed. The filtering choices are remembered when the page is reloaded. The user can also save drinks as favorites by clicking a button, and the favorites will be remembered even when the browser is closed and reopened. By clicking on a drink on the browse page, the user is sent to the **drink page** with the full recipe.
 
 ## Running the project
 
-- Run the project with _npm run dev_ in the **prosjekt1**-folder. Before running the project for the first time, run _npm install_.
-- Run the tests with _npm test_.
+Make sure to be in the folder _prosjekt1_ when running the project.
+
+Before running the project for the first time, run `npm install`.
+
+Run the project with the command `npm run dev`.
 
 ## Project structure
 
@@ -20,6 +37,12 @@ Sipfinder is a website for finding cocktail recipes. The site consists of three 
 - The **utils** folder contains code that is used several times in the projects. _ApiRequests_ holds requests that are used to fetch data from the REST API. _Types_ contains descriptions of the different interfaces that are used in the project.
 
 - The **test** folder holds the different test files and a setup file for testing. The test folder contains a more thorough README that explains the tests.
+
+## REST API
+
+We have used the Cocktail DB (https://www.thecocktaildb.com/api.php) as our REST API.
+
+We have used TanStack with the method ensureQueryData() when sending requests to the REST API. This method first checks the query cache and only sends a request if the data is not found. By doing this we avoid sending unnecessary requests.
 
 ## Responsive design
 
@@ -39,12 +62,30 @@ Throughout development, we have tested the responsiveness by using the browser's
 
 In addition to using the inspector tool, we have tested the web application on our actual devices, which are various mobile devices and laptops.
 
-## REST API
+## Code quality
 
-We have used the Cocktail DB (https://www.thecocktaildb.com/api.php) as our REST API.
+### Testing
 
-We have used TanStack with the method ensureQueryData() when sending requests to the REST API. This method first checks the query cache and only sends a request if the data is not found. By doing this we avoid sending unnecessary requests.
+The tests can be run using `npm run test` (make sure to be in the folder _prosjekt1_).
 
-## Testing
+The test coverage can be seen by running `npm run coverage`.
 
-- Snaps
+We have used Vitest for testing the code. In this project, we have employed various types of tests to ensure code quality and functionality:
+
+- **Props Tests**: These tests focus on validating the properties passed to components, ensuring that the components receive the expected props.
+
+- **Snapshot Tests**: Snapshot testing involves capturing the rendered output of a component and comparing it to a stored snapshot. This helps detect unintended UI changes.
+
+- **State Tests**: We have implemented tests to verify the correctness of component states, ensuring that state changes occur as expected during different interactions.
+
+- **User Tests**: User tests simulate user interactions with the application. These tests are crucial for ensuring that the user interface behaves as intended and that user actions trigger the expected outcomes.
+
+We have mainly tested the components, which are CarouselItem, ListElement and NavBar. We haven't thoroughly tested the browse page, especially the filtering functionality, because of time constraints. If we were to develop this web application further, this would be something to focus on.
+
+### Prettier
+
+TODO
+
+### ESLint
+
+TODO
