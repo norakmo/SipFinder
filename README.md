@@ -84,7 +84,8 @@ We have mainly tested the components, which are CarouselItem, ListElement and Na
 
 ### Prettier
 
-TODO
+We have used Prettier to maintain a clean and uniform codebase. Prettier is a code formatter that ensures a consistent code style across the project, by automatically formatting code to a predefined set of rules.
+We have set up Prettier to format the code when saving a file in VSCode, and all members in our team have installed the Prettier VSCode extension.
 
 ### ESLint
 
