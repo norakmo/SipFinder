@@ -7,7 +7,6 @@
 3. [Project structure](#project-structure)
 4. [REST API](#rest-api)
 5. [Responsive design](#responsive-design)
-   - [Technologies used](#technologies-used)
    - [Testing Responsiveness](#testing-responsiveness)
 6. [Code quality](#code-quality)
    - [Testing](#testing)
@@ -52,7 +51,7 @@ Here are some of the technologies used to ensure responsiveness:
 
 - **CSS media queries**: This enabled us to apply different styles based on the characteristics of the user's device. We have used a breakpoint for 800px, and changed the styling for devices that have a screen width below this breakpoint.
 
-- **Flexible grid layouts**: We have used flexboxes with different flex directions based on the screen's size. On the browse-page, the container for the filter and contents boxes changes from to flex direction: row to flex-direction column to ensure that this page works well on both small and large screens.
+- **Flexible grid layouts**: We have used flexboxes with different flex directions based on the screen's size. On the browse-page, the container for the filter and contents boxes changes flex direction from row to column, to ensure that this page works well on both small and large screens.
 
 - **Viewport meta tag**: We have included the viewport meta tag in the HTML, which enables responsiveness and allows us to set the initial scale. In our CSS-code, we have used relative size units such as vh, vw and percentages to ensure that the sizing of elements are relative to the screen size.
 
@@ -84,12 +83,11 @@ We have mainly tested the components, which are CarouselItem, ListElement and Na
 
 ### Prettier
 
-We have used Prettier to maintain a clean and uniform codebase. Prettier is a code formatter that ensures a consistent code style across the project, by automatically formatting code to a predefined set of rules.
-We have set up Prettier to format the code when saving a file in VSCode, and all members in our team have installed the Prettier VSCode extension.
+We have used Prettier to maintain a clean and uniform codebase. We have set up Prettier to format the code when saving a file in VSCode, and all members in our team have installed the Prettier VSCode extension.
 
 ### ESLint
 
-We have used ESLint to help identify and fix problems in the code. ESLint is a static code analysis tool that enforces coding standards and best practices, ensuring a consistent and maintanable codebase.
+We have used ESLint to help identify and fix problems in the code.
 
 Run linting with the command `npm run lint`.
 
